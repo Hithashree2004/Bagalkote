@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ subject }} - Select Mode</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>{{ subject }}</h1>
+            <p class="subtitle">{{ level }} / {{ subject }}</p>
+            <a href="{{ url_for('subjects', level=level) }}" class="btn" style="margin-top: 20px; font-size: 0.8rem; padding: 8px 20px;"><i class="fas fa-arrow-left"></i> Change Subject</a>
+        </header>
+
+        <section class="selection-area">
+            <h2 style="text-align: center; margin-bottom: 20px;">Choose Chapter & Mode</h2>
+            <div style="display: flex; gap: 20px; flex-direction: column; align-items: center;">
+                <select id="chapter-select" class="btn" style="background: var(--card-bg); border: 1px solid var(--accent); width: 300px;">
+                    {% for chapter in chapters %}
+                    <option value="{{ chapter }}">{{ chapter }}</option>
+                    {% endfor %}
+                </select>
+
+                <div class="grid" style="width: 100%;">
+                    {% for mode in modes %}
+                    <a href="#" onclick="navigateToContent('{{ mode }}')" class="card">
+                        {% if mode == 'Basic' %} <i class="fas fa-seedling"></i>
+                        {% elif mode == 'Intermediate' %} <i class="fas fa-chart-line"></i>
+                        {% elif mode == 'Pro' %} <i class="fas fa-bolt"></i>
+                        {% elif mode == 'Revision' %} <i class="fas fa-redo-alt"></i>
+                        {% endif %}
+                        <h2>{{ mode }}</h2>
+                    </a>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        function navigateToContent(mode) {
+            const chapter = document.getElementById('chapter-select').value;
+            window.location.href = `/content/{{ level }}/{{ subject }}/${mode}/${chapter}`;
+        }
+    </script>
+</body>
+</html>

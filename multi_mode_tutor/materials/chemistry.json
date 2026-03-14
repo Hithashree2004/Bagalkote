@@ -1,0 +1,28 @@
+{
+  "Atomic Structure": {
+    "basic": {
+      "explanation": "Atoms are the basic building blocks of matter. They consist of a nucleus (protons and neutrons) and electrons orbiting it. Atoms of the same element have the same number of protons (atomic number).",
+      "mcqs": [
+        { "q": "Who discovered the electron?", "o": ["Thomson", "Rutherford", "Bohr", "Chadwick"], "a": "Thomson" },
+        { "q": "Charge of a neutron is:", "o": ["Positive", "Negative", "Neutral", "None"], "a": "Neutral" }
+      ]
+    },
+    "intermediate": {
+      "notes": "Bohr's model of the atom and wave-particle duality. Quantum numbers: principal, azimuthal, magnetic, and spin.",
+      "formulas": ["E = h*nu", "lambda = h / (m*v)"],
+      "mcqs": [],
+      "numericals": []
+    },
+    "pro": {
+      "advanced_explanation": "Schrodinger wave equation and orbital visualization.",
+      "difficult_problems": [],
+      "mcqs": [],
+      "mock_test": []
+    },
+    "revision": {
+      "points": ["Proton: +1, Mass 1", "Neutron: 0, Mass 1", "Electron: -1, Mass 0.0005"],
+      "formulas": ["lambda = h/p"],
+      "notes": "Revision notes for atomic structure."
+    }
+  }
+}

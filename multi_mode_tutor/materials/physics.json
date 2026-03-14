@@ -1,0 +1,111 @@
+{
+  "Motion": {
+    "basic": {
+      "explanation": "Motion is the change in position of an object over time. It is described in terms of displacement, distance, velocity, acceleration, speed, and time. Scalar quantities like distance and speed have only magnitude, while vector quantities like displacement and velocity have both magnitude and direction.",
+      "concepts": [
+        "Distance vs Displacement",
+        "Speed vs Velocity",
+        "Average Speed formula: Total Distance / Total Time",
+        "Uniform vs Non-uniform motion"
+      ],
+      "examples": [
+        "A car moving from point A to B and back to A. Total distance is 2AB, displacement is zero."
+      ],
+      "mcqs": [
+        { "q": "Distance is a ________ quantity.", "o": ["Scalar", "Vector", "Both", "None"], "a": "Scalar" },
+        { "q": "The rate of change of displacement is:", "o": ["Speed", "Velocity", "Acceleration", "Force"], "a": "Velocity" },
+        { "q": "SI unit of acceleration is:", "o": ["m/s", "m/s^2", "km/h", "m*s"], "a": "m/s^2" },
+        { "q": "If an object is at rest, its velocity is:", "o": ["Constant", "Zero", "Infinite", "Negative"], "a": "Zero" },
+        { "q": "A body moves in a circle. After one full revolution, displacement is:", "o": ["2*pi*r", "pi*r", "0", "r"], "a": "0" },
+        { "q": "Odometer measures:", "o": ["Speed", "Distance", "Time", "Acceleration"], "a": "Distance" },
+        { "q": "Slope of Distance-Time graph represents:", "o": ["Velocity", "Speed", "Acceleration", "Distance"], "a": "Speed" },
+        { "q": "Which of these is vector?", "o": ["Time", "Speed", "Displacement", "Mass"], "a": "Displacement" },
+        { "q": "Uniform motion means:", "o": ["Changing speed", "Equal distance in equal time", "Rest", "Non-linear path"], "a": "Equal distance in equal time" },
+        { "q": "Negative acceleration is called:", "o": ["Speed", "Retardation", "Velocity", "Momentum"], "a": "Retardation" }
+      ]
+    },
+    "intermediate": {
+      "notes": "Kinematic equations for uniformly accelerated motion: v = u + at, s = ut + 0.5at^2, v^2 = u^2 + 2as. These equations relate initial velocity (u), final velocity (v), acceleration (a), time (t), and displacement (s).",
+      "formulas": [
+        "v = u + at",
+        "s = ut + 1/2 at^2",
+        "v^2 = u^2 + 2as",
+        "s_n = u + a/2(2n-1)"
+      ],
+      "mcqs": [
+        { "q": "A ball is thrown up. At highest point, velocity is:", "o": ["g", "9.8 m/s", "0", "u"], "a": "0" },
+        { "q": "Area under Velocity-Time graph gives:", "o": ["Acceleration", "Displacement", "Speed", "Force"], "a": "Displacement" },
+        { "q": "If acceleration is constant, the v-t graph is a:", "o": ["Circle", "Parabola", "Straight Line", "Point"], "a": "Straight Line" },
+        { "q": "Wait time for sound to travel 340m (V=340m/s)?", "o": ["1s", "2s", "0.5s", "10s"], "a": "1s" },
+        { "q": "Conversion of 36 km/h to m/s:", "o": ["10", "5", "20", "18"], "a": "10" },
+        { "q": "Equation s = ut + 1/2 at^2 is valid for:", "o": ["Variable acceleration", "Constant acceleration", "Zero speed", "Circular motion"], "a": "Constant acceleration" },
+        { "q": "Initial velocity of object starting from rest:", "o": ["10 m/s", "0", "u", "v"], "a": "0" },
+        { "q": "Speedometer of vehicle shows:", "o": ["Average speed", "Instantaneous speed", "Velocity", "Distance"], "a": "Instantaneous speed" },
+        { "q": "If v=u, acceleration is:", "o": ["g", "0", "Positive", "Negative"], "a": "0" },
+        { "q": "Motion under gravity is example of:", "o": ["Uniform velocity", "Uniform acceleration", "Non-uniform acceleration", "Rest"], "a": "Uniform acceleration" }
+      ],
+      "numericals": [
+        "A car accelerates from 18km/h to 36km/h in 5s. Calculate acceleration.",
+        "A train starting from rest attains 72km/h in 5min. Find displacement.",
+        "Calculate distance traveled by a ball dropped from 20m high (g=10m/s^2).",
+        "An athlete completes a circular track of 200m diameter in 40s. Find displacement after 2min 20s.",
+        "A trolley going down inclined plane has a=2cm/s^2. Find v after 3s starting from rest."
+      ]
+    },
+    "pro": {
+      "advanced_explanation": "Relative motion in 1D and 2D. Calculus-based kinematics where a = dv/dt and v = dx/dt. Projectile motion involves two independent motions: horizontal (uniform velocity) and vertical (uniform acceleration).",
+      "difficult_problems": [
+        "A man can swim in still water at 4km/h. How long does he take to cross a 1km wide river flowing at 3km/h if he keeps himself perpendicular to flow?",
+        "Find the angle of projection for which horizontal range and maximum height are equal.",
+        "A stone is dropped into a well 44.1m deep. The sound of splash is heard 3.13s after dropping. Find speed of sound."
+      ],
+      "mcqs": [
+        { "q": "Range of projectile is maximum at angle:", "o": ["30", "45", "60", "90"], "a": "45" },
+        { "q": "Trajectory of projectile is a:", "o": ["Circle", "Straight Line", "Parabola", "Hyperbola"], "a": "Parabola" },
+        { "q": "Relative velocity of A w.r.t B (moving in same direction):", "o": ["Va + Vb", "Va - Vb", "Vb - Va", "Va * Vb"], "a": "Va - Vb" },
+        { "q": "At max height of projectile, vertical velocity is:", "o": ["u cos theta", "u sin theta", "0", "g"], "a": "0" },
+        { "q": "Time of flight is:", "o": ["u sin theta / g", "2u sin theta / g", "u^2 sin 2theta / g", "u cos theta / g"], "a": "2u sin theta / g" },
+        { "q": "Which is constant in projectile motion?", "o": ["Vertical velocity", "Speed", "Horizontal velocity", "Momentum"], "a": "Horizontal velocity" },
+        { "q": "Particle moves with x = 2t^2 + 5. Velocity at t=2s?", "o": ["8", "4", "5", "10"], "a": "8" },
+        { "q": "A bomb is dropped from plane flying horizontally. Path is:", "o": ["Vertical", "Horizontal", "Parabolic", "Circular"], "a": "Parabolic" },
+        { "q": "If R = 4H, then theta is:", "o": ["45", "60", "30", "90"], "a": "45" },
+        { "q": "Instantaneous acceleration is:", "o": ["ds/dt", "dv/dt", "d^2v/dt^2", "v.dt"], "a": "dv/dt" }
+      ],
+      "mock_test": [
+        { "q": "Calculate the range of a projectile fired at 20m/s at 30 degrees (g=10).", "options": ["34.6m", "20m", "40m", "17.3m"], "answer": "34.6m" },
+        { "q": "Position x = t^3 - 6t^2 + 9t. At what time is acceleration zero?", "options": ["2s", "1s", "3s", "0s"], "answer": "2s" },
+        { "q": "A car covers first half of distance at 40km/h and second half at 60km/h. Average speed?", "options": ["50km/h", "48km/h", "52km/h", "45km/h"], "answer": "48km/h" },
+        { "q": "Resultant of two vectors P and Q is R. If Q is doubled, R is doubled. Angle?", "options": ["120", "60", "90", "180"], "answer": "120" },
+        { "q": "A body is projected with 10m/s at 60 deg. Velocity at highest point?", "options": ["10", "5", "8.6", "0"], "answer": "5" },
+        { "q": "Two particles projected at 30 and 60 deg with same speed. Ratio of ranges?", "options": ["1:1", "1:2", "1:3", "3:1"], "answer": "1:1" },
+        { "q": "Velocity vector of projectile at any time t is?", "options": ["u cos i + (u sin - gt)j", "u i - gt j", "gt i + uj", "Constant"], "answer": "u cos i + (u sin - gt)j" },
+        { "q": "Smallest unit of time is:", "options": ["Second", "Millisecond", "Shake", "Microsecond"], "answer": "Shake" },
+        { "q": "A stone is thrown vertically up. What is its acceleration at top?", "options": ["0", "9.8 m/s^2", "-9.8 m/s^2", "Infinite"], "answer": "9.8 m/s^2" },
+        { "q": "Which of the following is not a vector?", "options": ["Force", "Electric Field", "Electric Flux", "Magnetic Field"], "answer": "Electric Flux" }
+      ]
+    },
+    "revision": {
+      "points": [
+        "Distance is path length, Displacement is shortest distance.",
+        "Speed = Dist/Time, Velocity = Disp/Time.",
+        "Acceleration is rate of change of velocity.",
+        "Area under v-t graph = Displacement.",
+        "Slope of v-t graph = Acceleration.",
+        "Equations of motion: v=u+at, s=ut+1/2at^2, v^2=u^2+2as.",
+        "Distance in nth second s_n = u + a/2(2n-1).",
+        "Under gravity, a = g (9.8 or 10 m/s^2).",
+        "Projectile motion path is parabolic.",
+        "Relative velocity VaB = Va - Vb."
+      ],
+      "formulas": [
+        "v = u + at",
+        "s = ut + 1/2 at^2",
+        "v^2 = u^2 + 2as",
+        "R = u^2 sin 2theta / g",
+        "H = u^2 sin^2 theta / 2g",
+        "T = 2u sin theta / g"
+      ],
+      "notes": "Focus on graphs and kinematic equations. Practice projectile motion problems and relative velocity scenarios."
+    }
+  }
+}

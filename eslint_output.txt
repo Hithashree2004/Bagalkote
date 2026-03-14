@@ -1,0 +1,11 @@
+
+C:\My project\lumina-ai-quest-main (1)\lumina-ai-quest-main (1)\lumina-ai-quest-main\src\pages\Dashboard.tsx
+  537:44  error    Unexpected any. Specify a different type                                                                             @typescript-eslint/no-explicit-any
+  540:58  error    Unexpected any. Specify a different type                                                                             @typescript-eslint/no-explicit-any
+  544:45  error    Unexpected any. Specify a different type                                                                             @typescript-eslint/no-explicit-any
+  544:53  error    Unexpected any. Specify a different type                                                                             @typescript-eslint/no-explicit-any
+  791:64  warning  React Hook useMemo has a missing dependency: 'getFilteredContent'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  837:87  error    Unexpected any. Specify a different type                                                                             @typescript-eslint/no-explicit-any
+
+✖ 6 problems (5 errors, 1 warning)
+

@@ -1,0 +1,27 @@
+{
+  "Limits": {
+    "basic": {
+      "explanation": "A limit is the value that a function approaches as the input approaches some value. It is the fundamental concept in calculus.",
+      "mcqs": [
+        { "q": "limit x->0 sin(x)/x is:", "o": ["0", "1", "Infinite", "None"], "a": "1" }
+      ]
+    },
+    "intermediate": {
+      "notes": "L'Hopital's rule for evaluating indeterminate forms like 0/0 or inf/inf.",
+      "formulas": ["L'Hopital's Rule", "Standard limits"],
+      "mcqs": [],
+      "numericals": []
+    },
+    "pro": {
+      "advanced_explanation": "Squeeze theorem and formal epsilon-delta definition.",
+      "difficult_problems": [],
+      "mcqs": [],
+      "mock_test": []
+    },
+    "revision": {
+      "points": ["Check left-hand and right-hand limits."],
+      "formulas": ["lim sinx/x = 1"],
+      "notes": "Revision notes for limits."
+    }
+  }
+}

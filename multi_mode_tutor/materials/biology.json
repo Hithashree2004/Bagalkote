@@ -1,0 +1,25 @@
+{
+  "Cell Structure": {
+    "basic": {
+      "explanation": "Cells are the basic structural and functional unit of life. All living organisms are composed of cells.",
+      "mcqs": [
+        { "q": "Powerhouse of the cell is:", "o": ["Nucleus", "Mitochondria", "Ribosome", "Golgi"], "a": "Mitochondria" }
+      ]
+    },
+    "intermediate": {
+      "notes": "Difference between prokaryotic and eukaryotic cells. Plant vs Animal cells.",
+      "mcqs": [],
+      "numericals": []
+    },
+    "pro": {
+      "advanced_explanation": "Cell membrane dynamics and transport mechanisms.",
+      "difficult_problems": [],
+      "mcqs": [],
+      "mock_test": []
+    },
+    "revision": {
+      "points": ["Study organelles and their functions."],
+      "notes": "Revision notes for cell structure."
+    }
+  }
+}

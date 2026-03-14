@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi Mode Tutor - {{ level }} Subjects</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>{{ level }} Prep</h1>
+            <p class="subtitle">Select a subject to begin your study session</p>
+            <a href="{{ url_for('index') }}" class="btn" style="margin-top: 20px; font-size: 0.8rem; padding: 8px 20px;"><i class="fas fa-arrow-left"></i> Change Exam</a>
+        </header>
+
+        <section class="selection-area">
+            <div class="grid">
+                <a href="{{ url_for('modes', level=level, subject='Physics') }}" class="card">
+                    <i class="fas fa-atom"></i>
+                    <h2>Physics</h2>
+                </a>
+                <a href="{{ url_for('modes', level=level, subject='Chemistry') }}" class="card">
+                    <i class="fas fa-flask"></i>
+                    <h2>Chemistry</h2>
+                </a>
+                <a href="{{ url_for('modes', level=level, subject='Mathematics') }}" class="card">
+                    <i class="fas fa-calculator"></i>
+                    <h2>Mathematics</h2>
+                </a>
+                <a href="{{ url_for('modes', level=level, subject='Biology') }}" class="card">
+                    <i class="fas fa-dna"></i>
+                    <h2>Biology</h2>
+                </a>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ chapter }} - {{ mode }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            {% if mode == 'Pro' %}<div id="timer">10:00</div>{% endif %}
+            <h1>{{ chapter }}</h1>
+            <p class="subtitle">{{ subject }} > {{ mode }} Mode</p>
+            <a href="{{ url_for('modes', level=level, subject=subject) }}" class="btn" style="margin-top: 20px; font-size: 0.8rem; padding: 8px 20px;"><i class="fas fa-arrow-left"></i> Change Mode</a>
+        </header>
+
+        <section class="content-section">
+            {% if mode == 'Basic' %}
+                <div class="lesson">
+                    <h2 class="gradient-text"><i class="fas fa-book-open"></i> Full Concept Explanation</h2>
+                    <p style="margin-top: 20px; font-size: 1.1rem;">{{ data.explanation }}</p>
+                    
+                    <h3 style="margin-top: 30px; color: var(--accent);">Key Concepts</h3>
+                    <ul style="margin-left: 20px; margin-top: 10px;">
+                        {% for concept in data.concepts %}
+                        <li>{{ concept }}</li>
+                        {% endfor %}
+                    </ul>
+
+                    <h3 style="margin-top: 30px; color: var(--accent);">Example</h3>
+                    <p>{{ data.examples[0] }}</p>
+
+                    <h2 style="margin-top: 40px;"><i class="fas fa-tasks"></i> Practice Quiz (10 MCQs)</h2>
+                    <div id="quiz-area">
+                        {% for q in data.mcqs %}
+                        <div class="mcq-item">
+                            <p><strong>Q{{ loop.index }}: {{ q.q }}</strong></p>
+                            {% for opt in q.o %}
+                            <button class="option-btn" onclick="checkAnswer(this, '{{ q.a }}')">{{ opt }}</button>
+                            {% endfor %}
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+
+            {% elif mode == 'Intermediate' %}
+                <div class="lesson">
+                    <h2><i class="fas fa-sticky-note"></i> Concept Notes</h2>
+                    <p>{{ data.notes }}</p>
+
+                    <h2 style="margin-top: 30px;"><i class="fas fa-square-root-alt"></i> Important Formulas</h2>
+                    <ul style="margin-left: 20px;">
+                        {% for f in data.formulas %}
+                        <li style="font-size: 1.2rem; font-family: monospace; color: var(--accent);">{{ f }}</li>
+                        {% endfor %}
+                    </ul>
+
+                    <h2 style="margin-top: 40px;"><i class="fas fa-flask"></i> Numericals</h2>
+                    {% for n in data.numericals %}
+                    <div class="mcq-item">{{ n }}</div>
+                    {% endfor %}
+                </div>
+
+            {% elif mode == 'Pro' %}
+                <div class="lesson">
+                    <h2><i class="fas fa-brain"></i> Advanced Concepts</h2>
+                    <p>{{ data.advanced_explanation }}</p>
+
+                    <h2 style="margin-top: 40px; border-top: 1px solid var(--accent); padding-top: 20px;"><i class="fas fa-clock"></i> Mock Test (10 min)</h2>
+                    <div id="mock-test">
+                        {% for q in data.mock_test %}
+                        <div class="mcq-item mock-q" data-answer="{{ q.answer }}">
+                            <p><strong>{{ loop.index }}. {{ q.q }}</strong></p>
+                            {% for opt in q.options %}
+                            <label class="option-btn" style="display: block;">
+                                <input type="radio" name="q{{ loop.index }}" value="{{ opt }}"> {{ opt }}
+                            </label>
+                            {% endfor %}
+                        </div>
+                        {% endfor %}
+                        <button class="btn" onclick="submitMockTest()" style="width: 100%; margin-top: 20px;">Submit Mock Test</button>
+                    </div>
+
+                    <div id="result-area" style="display: none; margin-top: 30px; text-align: center;">
+                        <h2 id="final-score"></h2>
+                        <div id="details"></div>
+                    </div>
+                </div>
+
+            {% elif mode == 'Revision' %}
+                <div class="lesson">
+                    <h2><i class="fas fa-check-circle"></i> 10 Important Points</h2>
+                    <ul style="margin-top: 20px;">
+                        {% for p in data.points %}
+                        <li style="margin-bottom: 10px;">{{ p }}</li>
+                        {% endfor %}
+                    </ul>
+
+                    <h2 style="margin-top: 30px;"><i class="fas fa-bolt"></i> Quick Revision Notes</h2>
+                    <p>{{ data.notes }}</p>
+                </div>
+            {% endif %}
+        </section>
+    </div>
+
+    <script>
+        function checkAnswer(btn, correct) {
+            if (btn.innerText === correct) {
+                btn.style.backgroundColor = "rgba(0, 255, 0, 0.2)";
+                btn.style.borderColor = "#00ff00";
+            } else {
+                btn.style.backgroundColor = "rgba(255, 0, 0, 0.2)";
+                btn.style.borderColor = "#ff0000";
+            }
+        }
+
+        {% if mode == 'Pro' %}
+        let time = 600;
+        const timerEl = document.getElementById('timer');
+        const timerInterval = setInterval(() => {
+            let mins = Math.floor(time / 60);
+            let secs = time % 60;
+            timerEl.innerText = `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+            if (time <= 0) {
+                clearInterval(timerInterval);
+                submitMockTest();
+            }
+            time--;
+        }, 1000);
+
+        function submitMockTest() {
+            clearInterval(timerInterval);
+            let score = 0;
+            const questions = document.querySelectorAll('.mock-q');
+            questions.forEach((q, idx) => {
+                const selected = q.querySelector('input:checked');
+                if (selected && selected.value === q.dataset.answer) {
+                    score++;
+                }
+            });
+            
+            document.getElementById('mock-test').style.display = 'none';
+            const resultArea = document.getElementById('result-area');
+            resultArea.style.display = 'block';
+            document.getElementById('final-score').innerText = `Your Score: ${score} / ${questions.length}`;
+        }
+        {% endif %}
+    </script>
+</body>
+</html>

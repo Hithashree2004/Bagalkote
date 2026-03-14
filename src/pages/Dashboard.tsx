@@ -1,28 +1,19 @@
 import { useState, useEffect, useMemo } from 'react';
 import { Link } from 'react-router-dom';
-import { Search, Mic, BookOpen, Video, Music, Image as ImageIcon, Sparkles, Gamepad2, X, Moon, Sun, Globe, Box } from 'lucide-react';
+import { BookOpen, Video, Image as ImageIcon, Sparkles, Gamepad2, X, Moon, Sun, Globe, Box, GraduationCap, Trophy } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Skeleton } from '@/components/ui/skeleton';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Dialog, DialogContent } from '@/components/ui/dialog';
 import ParticleBackground from '@/components/ParticleBackground';
+import TutorWidget from '@/components/tutor/TutorWidget';
 import DateTimeDisplay from '@/components/DateTimeDisplay';
 import NewspaperSection from '@/components/NewspaperSection';
+import Chatbot from '@/components/Chatbot';
 import CurrentAffairsPanel from '@/components/CurrentAffairsPanel';
 import RoadMapSection from '@/components/RoadMapSection';
-import { toast } from 'sonner';
+import MultiModeTutor from '@/components/tutor/MultiModeTutor';
 import { useTheme } from '@/contexts/ThemeContext';
 import { useLanguage } from '@/contexts/LanguageContext';
-
-type GeneratedContent = {
-  topic: string;
-  summaryLines: string[];
-  imageUrls: string[];
-  suggestedVideos: { title: string; url: string; thumbnail?: string; videoId?: string }[];
-  bookRecommendations: string[];
-  threeDModelUrl?: string;
-};
 
 const educationalKeywords = [
   'math',
@@ -61,7 +52,141 @@ const educationalKeywords = [
 
 const curatedTopics = [
   {
-    keywords: ['alphabet', 'alphabets', 'letters', 'abc'],
+    keywords: ["newton's second law", "newtons second law", "newton 2nd law"],
+    topic: "Newton's Second Law",
+    summaryLines: [
+      "Newton's second law of motion is a fundamental principle in physics that describes the relationship between an object's mass and the amount of force needed to accelerate it.",
+      "The law states that the acceleration of an object as produced by a net force is directly proportional to the magnitude of the net force, in the same direction as the net force, and inversely proportional to the mass of the object.",
+      "This can be expressed by the equation F = ma, where F is the net force applied, m is the mass of the object, and a is its acceleration.",
+      "Force is a vector quantity, meaning it has both magnitude and direction. Acceleration is also a vector, and it always occurs in the direction of the net force.",
+      "Mass is a scalar quantity and represents the amount of matter in an object, providing resistance to changes in its state of motion.",
+      "The unit for force is the Newton (N), which is defined as the force required to accelerate one kilogram of mass at a rate of one meter per second squared (1 kg·m/s²).",
+      "If the net force acting on an object is doubled, its acceleration will also double, provided the mass remains constant.",
+      "Conversely, if the mass of an object is doubled, the same amount of force will produce only half the acceleration.",
+      "This law explains why it is easier to push a bicycle than a car; the car's larger mass offers more inertia or resistance to acceleration.",
+      "Inertia is closely linked to the second law, as it represents the tendency of an object to resist any change in its motion.",
+      "The second law is applicable in everyday situations, from the design of sports equipment to the calculation of fuel needed for rocket launches.",
+      "In automotive safety, the second law is used to understand how forces act on passengers during a collision and to design effective crumple zones and airbags.",
+      "For athletes, understanding this law can help in improving performance, such as how much force a sprinter needs to apply against the blocks to achieve maximum acceleration.",
+      "The law also forms the basis for more complex physical theories and is used extensively in engineering and structural design to ensure safety and efficiency.",
+      "When multiple forces act on an object, the vector sum of these forces is the net force, which determines the overall acceleration.",
+      "If the net force is zero, the object's acceleration is zero, which means it will either remain at rest or continue moving at a constant velocity.",
+      "Friction is a common force that opposes motion and must be accounted for when calculating the net force in real-world scenarios.",
+      "Air resistance is another type of force that affects falling objects and vehicles, often limiting their maximum acceleration.",
+      "Gravity is a constant force acting on objects near Earth's surface, where the acceleration due to gravity is approximately 9.8 m/s².",
+      "Weight is the force of gravity acting on an object's mass and is a direct application of the second law.",
+      "Circular motion also involves the second law, where centripetal force is required to keep an object moving in a curved path.",
+      "The second law can be reformulated in terms of momentum: Force is equal to the rate of change of momentum over time.",
+      "This momentum formulation is more general and applies even when the mass of the object is changing, such as in a rocket as it burns fuel.",
+      "Newton's second law is one of the three laws of motion that revolutionized our understanding of the physical world and laid the groundwork for modern physics and engineering.",
+      "Engineers use the second law to calculate the tension in cables, the stress on bridges, and the power requirements for engines.",
+      "In planetary science, the law helps determine the orbits of planets and the gravitational pull of stars.",
+      "Biomechanics researchers use the second law to analyze human movement and develop prosthetics that mimic natural motion.",
+      "The law is taught in physics courses worldwide as a cornerstone of mechanics, essential for solving problems involving motion and forces.",
+      "It remains a highly accurate description of motion for objects at speeds much slower than the speed of light.",
+      "At very high speeds or for extremely small particles, more advanced theories provide more accurate descriptions, but Newton's laws are still used for most practical applications.",
+      "Understanding the second law is key to mastering higher-level physics topics like work, energy, and power.",
+      "It allows us to predict the future state of a system if we know the forces currently acting upon it.",
+      "The simplicity and power of the equation make it one of the most recognizable and important concepts in all of science.",
+      "Every time you step on the gas in a car, throw a ball, or jump into the air, you are experiencing the second law in action.",
+      "When a force is applied to an object, the resulting change in velocity is the acceleration, which is what the second law quantifies.",
+      "Net force is the combined effect of all individual forces acting on an object, including tension, normal force, and external pushes or pulls.",
+      "Objects with larger mass have more 'mechanical resistance' or inertia, meaning they require more force to change their velocity.",
+      "The direction of the net force is identical to the direction of the resulting acceleration vector.",
+      "This principle is used in the aerospace industry to calculate the thrust needed to overcome atmospheric drag and reach escape velocity.",
+      "In architecture, the second law is used to ensure that the forces from wind and gravity do not cause buildings to shift or fail.",
+      "Sports coaches use the second law to teach athletes how to maximize their power output by focusing on both force production and speed.",
+      "The second law can be applied to individual particles in a fluid to model the flow of liquids and gases.",
+      "It is also fundamental in thermodynamics for understanding the kinetic energy of molecules in a system.",
+      "The second law is part of a larger framework of classical mechanics that has been used to build the modern industrial world.",
+      "From the smallest gears in a watch to the largest turbines in a power plant, the second law dictates how machines operate.",
+      "The law of motion is so reliable that it is used to precisely navigate spacecraft to distant planets and moons.",
+      "It also helps us understand why heavier objects take longer to stop when moving at the same speed as lighter ones.",
+      "The concept of impulse, which is force applied over a period of time, is directly derived from the second law.",
+      "Impulse is critical in designing safety gear for sports and protective equipment for high-risk occupations.",
+      "The second law is a bridge between the concept of force and the observable reality of motion.",
+      "It teaches us that to change the world, we must apply a force, and the magnitude of that change depends on what we are moving.",
+      "The mathematical beauty of the second law lies in its ability to describe complex phenomena with a single, clear relationship.",
+      "Science students spend much of their early education mastering this law because it is the foundation for almost all physical science.",
+      "Every mechanical invention in history has had to account for the second law to function correctly.",
+      "It is a universal truth that applies to all objects in the universe, from microscopic cells to galactic clusters.",
+      "The consistency of the second law allows scientists to conduct repeatable experiments and build reliable technology.",
+      "It is a perfect example of how a simple observation can lead to a profound understanding of the universe."
+    ],
+    imageUrls: ["https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Newton%27s_second_law.svg/1200px-Newton%27s_second_law.svg.png"],
+    suggestedVideos: [
+      { title: "Newton's Second Law Explained", url: "https://www.youtube.com/embed/kKKM8Y-u7ds", thumbnail: "https://img.youtube.com/vi/kKKM8Y-u7ds/0.jpg" }
+    ]
+  },
+  {
+    keywords: ["photosynthesis"],
+    topic: "Photosynthesis",
+    summaryLines: [
+      "Photosynthesis is the sophisticated biological process by which green plants, algae, and certain bacteria convert light energy into chemical energy.",
+      "This process is essential for life on Earth as it is the primary source of organic material and oxygen in the atmosphere.",
+      "The general chemical process of photosynthesis involves the conversion of carbon dioxide and water into glucose and oxygen using light energy.",
+      "It primarily occurs in the chloroplasts, specialized organelles found in plant cells, particularly in the leaves.",
+      "Chlorophyll is the green pigment within chloroplasts that captures the solar energy needed for the reaction.",
+      "Photosynthesis consists of two main stages: the light-dependent reactions and the light-independent reactions.",
+      "The light-dependent reactions take place in the thylakoid membranes of the chloroplasts, where solar energy is absorbed and converted into chemical energy carriers.",
+      "During this first stage, water molecules are split, releasing oxygen as a byproduct.",
+      "The oxygen produced is vital for the survival of aerobic organisms, including humans, who rely on it for cellular respiration.",
+      "The light-independent reactions, also known as the carbon-fixing stage, occur in the stroma of the chloroplasts and do not directly require light.",
+      "In this stage, the energy stored during the light-dependent reactions is used to fix carbon dioxide into a stable sugar, which is then converted into glucose.",
+      "Glucose serves as a primary source of energy for the plant's growth, development, and reproduction.",
+      "Plants also store excess glucose as starch in their roots, stems, and leaves for future use.",
+      "Photosynthesis is influenced by several environmental factors, including light intensity, carbon dioxide concentration, and temperature.",
+      "Increased light intensity typically increases the rate of photosynthesis until a saturation point is reached.",
+      "Similarly, higher levels of carbon dioxide can enhance the process up to a certain limit.",
+      "Temperature affects the enzymes involved in photosynthesis; if it is too high or too low, the process can slow down or stop entirely.",
+      "Different plants have adapted different pathways to fix carbon, depending on their environment and adaptation to water availability.",
+      "Most common plants fix carbon directly in the carbon-fixing cycle.",
+      "Some specialized plants have evolved to minimize water loss in hot, dry climates by fixing carbon in two different cell types or during different times of day.",
+      "Desert plants often fix carbon at night to conserve water in arid environments.",
+      "Beyond providing food for the plant, photosynthesis is the foundation of almost all food chains on Earth.",
+      "Herbivores eat plants to obtain energy, and carnivores eat herbivores, transferring the solar energy originally captured by plants through the ecosystem.",
+      "This process also plays a crucial role in the global carbon cycle by removing carbon dioxide from the atmosphere, helping to regulate the Earth's climate.",
+      "The reduction of carbon dioxide through photosynthesis helps mitigate the greenhouse effect and global warming.",
+      "Forests, particularly tropical rainforests, are vital contributors to oxygen production and carbon sequestration.",
+      "Marine phytoplankton also contribute significantly to global photosynthesis, producing about half of the world's oxygen.",
+      "The evolution of photosynthesis billions of years ago drastically changed the Earth's atmosphere, leading to a rise in oxygen levels.",
+      "This rise in atmospheric oxygen allowed for the development of more complex, multicellular life forms.",
+      "In addition to food and oxygen, photosynthesis provides us with fossil fuels like coal, oil, and natural gas, which are the remains of ancient photosynthetic organisms.",
+      "Modern agriculture relies on optimizing photosynthesis to increase crop yields and feed a growing global population.",
+      "Researchers are currently exploring artificial photosynthesis to develop sustainable ways of producing clean energy and capturing carbon.",
+      "Understanding photosynthesis is fundamental to fields such as botany, ecology, environmental science, and biochemistry.",
+      "It illustrates the intricate and vital connection between the Sun, plants, and all other forms of life.",
+      "Every breath we take and every meal we eat is a testament to the power of photosynthesis.",
+      "The process of photosynthesis is a remarkable example of nature's efficiency in converting raw solar energy into usable chemical fuel.",
+      "Without this process, the Earth's atmosphere would likely be filled with carbon dioxide, making it uninhabitable for most life forms.",
+      "Photosynthesis is also involved in the creation of ozone in the upper atmosphere, which protects the Earth from harmful ultraviolet radiation.",
+      "The pigments used in photosynthesis are tuned to capture the most abundant wavelengths of light from the Sun.",
+      "While chlorophyll is the most well-known, other accessory pigments like carotenoids also help capture energy and protect the plant from damage.",
+      "The structure of the leaf is specifically adapted to maximize light absorption and minimize water loss during photosynthesis.",
+      "Stomata on the leaf surface allow for the exchange of gases like carbon dioxide and oxygen.",
+      "The vascular system of the plant transports water to the leaves and glucose away from the leaves to other parts of the plant.",
+      "Photosynthesis is one of the most studied and understood processes in biology, yet it still holds secrets that scientists are working to uncover.",
+      "The efficiency of energy transfer in the thylakoid membrane is incredibly high, far exceeding that of modern solar panels.",
+      "By studying the molecular details of photosynthesis, researchers hope to design better energy storage systems and more efficient crops.",
+      "The process is a beautiful example of biochemical engineering that has stood the test of time.",
+      "It is a universal process that connects all green life on Earth into a single energy-capturing network.",
+      "The sustainability of our planet depends on the health of the photosynthetic organisms that maintain our atmosphere.",
+      "Protecting forests and oceans is essential for ensuring that photosynthesis continues to balance the global climate.",
+      "The discovery of how plants 'eat' light was a major breakthrough in our understanding of the natural world.",
+      "It shifted our perspective from seeing plants as passive objects to recognizing them as active energy converters.",
+      "Photosynthesis is the engine that drives the biological world, turning light into the building blocks of life.",
+      "It is a process that is both ancient and ever-present, occurring in every green space on the planet.",
+      "Every single molecule of oxygen in the air you are breathing right now was once part of a water molecule split by a plant.",
+      "The complexity of the molecular machinery involved in photosynthesis is a marvel of the natural world.",
+      "It is a reminder of the incredible ingenuity found in the evolution of life on Earth."
+    ],
+    imageUrls: ["https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Photosynthesis_equation.svg/1200px-Photosynthesis_equation.svg.png"],
+    suggestedVideos: [
+      { title: "Photosynthesis Explained", url: "https://www.youtube.com/embed/sQK3Yr4Sc_k", thumbnail: "https://img.youtube.com/vi/sQK3Yr4Sc_k/0.jpg" }
+    ]
+  },
+  {
+    keywords: ["alphabet", "alphabets", "letters", "abc"],
     topic: 'English Alphabet',
     summaryLines: [
       'The English alphabet has 26 letters.',
@@ -76,6 +201,132 @@ const curatedTopics = [
     suggestedVideos: [
       { title: 'ABCD Song for Kids', url: 'https://www.youtube.com/embed/hq3yfQnllfQ', thumbnail: 'https://img.youtube.com/vi/hq3yfQnllfQ/0.jpg' },
       { title: 'Learn the Alphabet', url: 'https://www.youtube.com/embed/kG3dH1Jas92', thumbnail: 'https://img.youtube.com/vi/kG3dH1Jas92/0.jpg' }
+    ]
+  },
+  {
+    keywords: ["water cycle", "hydrologic cycle"],
+    topic: "Water Cycle",
+    summaryLines: [
+      "The water cycle is the continuous movement of water on, above, and below the surface of the Earth.",
+      "This cycle is fundamental to sustaining life on our planet and is driven by energy from the Sun and the force of gravity.",
+      "Water on Earth exists in three states: liquid, solid, and gas, and it constantly changes between these states as it moves through the cycle.",
+      "Evaporation is the process by which liquid water from oceans, lakes, and rivers is heated by the Sun and turns into water vapor, rising into the atmosphere.",
+      "Most of the water vapor in the atmosphere comes from the oceans, which cover the majority of the Earth's surface.",
+      "Transpiration is another important source of atmospheric water vapor, where plants release water from their leaves through small pores.",
+      "Together, evaporation and transpiration contribute to the total amount of water vapor in the air.",
+      "Sublimation is the process where ice and snow turn directly into water vapor without melting first, occurring in very cold, dry conditions.",
+      "Condensation happens when water vapor in the atmosphere cools and turns back into liquid water droplets, forming clouds and fog.",
+      "This process occurs as air rises and cools, leading to the formation of various types of clouds depending on the altitude and temperature.",
+      "Precipitation is the falling of water from the atmosphere back to the Earth's surface in the form of rain, snow, or other frozen forms.",
+      "Once water reaches the surface, it can follow several paths, depending on the terrain and soil type.",
+      "Surface runoff occurs when water flows over the ground into streams, rivers, and eventually the oceans.",
+      "Infiltration is the process by which water soaks into the ground, replenishing the soil moisture and the groundwater supply.",
+      "Groundwater is stored in underground layers of rock and sediment, providing a vital source of freshwater for many communities.",
+      "Some water is also stored in glaciers and ice caps, where it may remain for thousands of years before re-entering the cycle.",
+      "The water cycle is a closed system, meaning the total amount of water on Earth remains relatively constant, although its distribution changes over time.",
+      "It plays a crucial role in regulating the Earth's climate by transporting heat from the equator toward the poles.",
+      "The cycle also helps to purify water as it evaporates, leaving behind salts and other impurities.",
+      "However, the water cycle can also transport pollutants, such as when acid rain forms or when runoff carries chemicals into waterways.",
+      "Human activities are significantly impacting the water cycle through changes in land use and climate.",
+      "Land clearing reduces transpiration and can lead to changes in local rainfall patterns and soil erosion.",
+      "Building over surfaces increases runoff and decreases the amount of water soaking into the ground, leading to more frequent flooding.",
+      "Climate change is altering the timing and intensity of rainfall, leading to more extreme weather events like droughts and heavy storms.",
+      "Melting ice due to global warming is causing sea levels to rise, which can lead to coastal flooding and changes in freshwater sources.",
+      "Understanding the water cycle is essential for water resource management, agriculture, and disaster preparedness.",
+      "Scientists study the cycle to predict water availability and to design systems for flood control and irrigation.",
+      "The water cycle is also connected to other global cycles, such as the carbon and nitrogen cycles.",
+      "It illustrates the interconnectedness of the Earth's atmosphere, water bodies, land, and living things.",
+      "Every drop of water we use today has been through the water cycle countless times over billions of years.",
+      "The cycle has been ongoing since the early history of the Earth, shaping the landscape and making life possible.",
+      "It is a testament to the dynamic and resilient nature of our planet's systems.",
+      "Conserving water and protecting the water cycle is vital for the future of humanity and the health of the entire ecosystem.",
+      "Education about the water cycle helps people appreciate the value of water and the importance of sustainable practices.",
+      "The endless journey of water is one of the most remarkable and essential processes in the natural world.",
+      "The water cycle is not just a scientific concept; it is a vital life-support system that every living thing depends on.",
+      "The movement of water through the cycle helps to distribute nutrients and minerals across the globe.",
+      "Ocean currents, which are part of the larger water cycle, act like a conveyor belt for heat, influencing weather patterns worldwide.",
+      "The ability of water to absorb and store large amounts of heat makes it a powerful regulator of global temperature.",
+      "In the mountains, the water cycle is responsible for the formation of glaciers that carve out valleys and shape the terrain.",
+      "In the rainforests, the cycle is so intense that plants can create their own local weather patterns through transpiration.",
+      "The water cycle is also the reason we have freshwater, as the process of evaporation is a natural distillation system.",
+      "Without the constant recycling of water, the land would eventually become dry and barren.",
+      "The cycle is a perfect example of nature's ability to reuse resources indefinitely.",
+      "It is a process that has no beginning and no end, only a continuous flow of energy and matter.",
+      "The study of the water cycle involves many different fields of science, from meteorology to geology to biology.",
+      "It is a complex system with many variables, and our understanding of it is constantly evolving with new research.",
+      "The use of satellites has allowed us to track the movement of water across the globe in unprecedented detail.",
+      "This data is crucial for predicting how the water cycle will respond to a changing climate.",
+      "Protecting the quality of our water is just as important as protecting the quantity.",
+      "The water cycle reminds us that everything on Earth is connected, and our actions in one place can have effects far away.",
+      "It is a beautiful and intricate system that we must respect and cherish for generations to come.",
+      "The journey of a single water molecule can take it from the deepest ocean to the highest cloud and back again.",
+      "This endless movement is the pulse of our planet, ensuring that life continues to thrive in every corner of the Earth."
+    ],
+    imageUrls: ["https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Water_cycle.png/1200px-Water_cycle.png"],
+    suggestedVideos: [
+      { title: "Water Cycle Explained", url: "https://www.youtube.com/embed/al-do-HGuIk", thumbnail: "https://img.youtube.com/vi/al-do-HGuIk/0.jpg" }
+    ]
+  },
+  {
+    keywords: ["mitosis", "cell division"],
+    topic: "Mitosis",
+    summaryLines: [
+      "Mitosis is a fundamental cellular process whereby a single cell divides to produce two genetically identical daughter cells.",
+      "It is essential for the growth, development, and tissue repair of multicellular organisms.",
+      "Unlike other types of cell division that produce gametes with half the chromosome number, mitosis maintains the full set of chromosomes of the parent cell.",
+      "The process is part of the cell cycle, which also includes a growth phase where the cell replicates its genetic material in preparation for division.",
+      "Mitosis itself is divided into several distinct phases: prophase, metaphase, anaphase, and telophase.",
+      "During prophase, the genetic material condenses into visible chromosomes, each consisting of two identical parts joined together.",
+      "The nuclear envelope also begins to break down, and a specialized structure made of fibers starts to form between opposite poles of the cell.",
+      "In metaphase, these fibers attach to the chromosomes and align them along the cell's equator.",
+      "This precise alignment ensures that each daughter cell will receive an equal and complete set of genetic instructions.",
+      "Anaphase begins when the chromosomes split apart and are pulled toward opposite poles by the shortening fibers.",
+      "Once separated, each part is considered an individual chromosome.",
+      "During telophase, the chromosomes reach the poles and begin to relax back into their original state.",
+      "A new nuclear envelope forms around each set of chromosomes, resulting in two distinct nuclei within the single cell.",
+      "The physical separation of the cytoplasm, which usually begins during the final stage, involves the cell pinching in two.",
+      "This ensures that the contents of the cell are distributed between the two new daughter cells.",
+      "The entire process of mitosis is highly regulated by various proteins and checkpoints to ensure accuracy and prevent errors.",
+      "Malfunctions in the mitotic process can lead to genetic instability and are a major cause of health issues like uncontrolled cell growth.",
+      "Health problems can occur when cells divide uncontrollably due to failures in the cell cycle's regulatory mechanisms.",
+      "Mitosis is also the basis for asexual reproduction in many single-celled and some multicellular organisms.",
+      "In humans, millions of cells undergo mitosis every second to replace old or damaged cells in tissues like the skin and intestinal lining.",
+      "The speed of mitosis varies between different cell types; for example, skin cells divide frequently, while mature nerve cells rarely divide.",
+      "Understanding mitosis is crucial for fields such as genetics, developmental biology, and medicine.",
+      "Researchers study mitosis to develop new treatments that target the cell division process in diseased cells.",
+      "Advances in imaging technology have allowed scientists to observe mitosis in real-time and in great detail.",
+      "The discovery of how cells divide was a major milestone in biology, linking cell division to heredity and growth.",
+      "Mitosis ensures that every cell in an organism's body has the same genetic blueprint, which is vital for proper function and coordination.",
+      "It allows an organism to grow from a single fertilized egg into a complex being with trillions of specialized cells.",
+      "Tissues such as the liver have a high regenerative capacity because their cells can readily undergo mitosis when needed.",
+      "In contrast, tissues like heart muscle have a limited capacity for mitosis, making it difficult for those tissues to repair themselves after an injury.",
+      "Stem cells are unique because they can both undergo mitosis to maintain their population and differentiate into various specialized cell types.",
+      "The study of mitosis continues to reveal new insights into the fundamental nature of life and the mechanisms of health and disease.",
+      "It is a beautiful and highly orchestrated process that makes complex life possible.",
+      "Every multicellular organism on Earth depends on mitosis for its very existence.",
+      "The precision of the chromosome separation during mitosis is one of the most accurate processes in nature.",
+      "Even a single error in chromosome distribution can have profound effects on the resulting daughter cells.",
+      "Mitosis is responsible for the rapid growth seen in embryos and during the healing of wounds.",
+      "It is the mechanism by which your body constantly renews itself, replacing dead skin and blood cells.",
+      "The study of mitosis has led to a deeper understanding of how aging occurs at a cellular level.",
+      "Mitosis is a universal process found in all eukaryotic organisms, from single-celled yeast to giant redwood trees.",
+      "It is a testament to the underlying unity of life that such a complex process is shared across so many different species.",
+      "The fibers that move the chromosomes are made of proteins that are also used for other movements within the cell.",
+      "The regulation of mitosis involves a series of 'stop' and 'go' signals that prevent the cell from dividing until everything is ready.",
+      "These checkpoints check for DNA damage and ensure that all chromosomes are correctly attached to the fibers.",
+      "Failure of these checkpoints can lead to the accumulation of mutations over time.",
+      "Mitosis is a prime example of how life maintains order and consistency through generations of cells.",
+      "It is a process that is both incredibly robust and delicately balanced.",
+      "By understanding mitosis, we gain a window into the most basic functions of life itself.",
+      "The complexity of the cellular machinery required for mitosis is a marvel of biological evolution.",
+      "It is a process that is happening inside you right now, millions of times over, keeping you alive and healthy.",
+      "Without mitosis, life as we know it would be impossible, and multicellular organisms would never have evolved.",
+      "The continued study of mitosis is essential for the future of regenerative medicine and genetic research.",
+      "It is one of the most fundamental concepts every biology student must master to understand how life works."
+    ],
+    imageUrls: ["https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Major_events_in_mitosis.svg/1200px-Major_events_in_mitosis.svg.png"],
+    suggestedVideos: [
+      { title: "Mitosis Explained", url: "https://www.youtube.com/embed/f-ldPgEfAHI", thumbnail: "https://img.youtube.com/vi/f-ldPgEfAHI/0.jpg" }
     ]
   },
   {
@@ -95,6 +346,86 @@ const curatedTopics = [
     suggestedVideos: [
       { title: 'Quadratic Equations Explained', url: 'https://www.youtube.com/embed/VOaq87-q0lk', thumbnail: 'https://img.youtube.com/vi/VOaq87-q0lk/0.jpg' },
       { title: 'Solving Quadratic Equations', url: 'https://www.youtube.com/embed/xX_UX8b2LCE', thumbnail: 'https://img.youtube.com/vi/xX_UX8b2LCE/0.jpg' }
+    ]
+  },
+  {
+    keywords: ["kirchhoff's law", "kirchhoffs law", "kirchhoff law"],
+    topic: "Kirchhoff's Law",
+    summaryLines: [
+      "Kirchhoff's laws are a set of two rules that deal with the conservation of charge and energy in electrical circuits.",
+      "These laws are fundamental to circuit analysis and are used by engineers to design everything from simple flashlights to complex computer processors.",
+      "Kirchhoff's Current Law (KCL), or the junction rule, states that the total current entering a junction or node in a circuit must equal the total current leaving that junction.",
+      "This is a direct consequence of the conservation of electric charge, as charge cannot be created or destroyed at a point in the circuit.",
+      "If five amperes of current flow into a junction, exactly five amperes must flow out through the various available paths.",
+      "Kirchhoff's Voltage Law (KVL), or the loop rule, states that the directed sum of the potential differences (voltages) around any closed loop or mesh in a network is zero.",
+      "This law is based on the principle of conservation of energy, implying that the total energy gained per unit charge is equal to the total energy lost per unit charge as it moves around a complete loop.",
+      "In a simple loop with a battery and a resistor, the voltage supplied by the battery is exactly equal to the voltage dropped across the resistor.",
+      "These laws allow us to set up systems of linear equations to solve for unknown currents and voltages in multi-loop circuits.",
+      "When applying KCL, we define currents flowing into the node as positive and currents flowing out as negative (or vice versa), and their algebraic sum must be zero.",
+      "For KVL, we choose a direction for the loop and assign signs to the voltage changes across components based on whether we are moving from high to low potential or low to high potential.",
+      "Passive sign convention is typically used to ensure consistency when analyzing resistors, capacitors, and inductors.",
+      "Kirchhoff's laws are applicable to both direct current (DC) and alternating current (AC) circuits, although AC analysis requires the use of complex numbers or phasors.",
+      "These laws are valid for circuits where the time of travel of electromagnetic waves across the circuit is small compared to the time period of the signals (lumped-element model).",
+      "In high-frequency circuits where this assumption fails, Maxwell's equations must be used for a more accurate analysis.",
+      "The beauty of Kirchhoff's laws lies in their ability to simplify complex physical systems into manageable mathematical problems.",
+      "They form the basis for nodal analysis and mesh analysis, two powerful techniques used in electronic design automation software.",
+      "Every circuit designer must master these laws to ensure that power is distributed correctly and that sensitive components are not overloaded.",
+      "Kirchhoff's laws also have analogies in other fields of science, such as fluid dynamics (conservation of flow) and thermal systems (conservation of heat).",
+      "Understanding these laws provides a deep insight into the orderly nature of energy and matter in the universe.",
+      "Without these principles, the rapid advancement of electrical engineering in the 20th and 21st centuries would have been impossible.",
+      "They represent a perfect marriage of physical observation and mathematical rigor.",
+      "The laws are a cornerstone of the secondary and tertiary physics curriculum worldwide.",
+      "Mastery of circuit laws is essential for passing exams like NEET and JEE, which frequently feature complex circuit problems.",
+      "In everyday life, these laws ensure that the electrical systems in our homes and vehicles operate safely and efficiently.",
+      "For example, they explain how power is shared among different appliances plugged into a single parallel circuit.",
+      "They also explain why a break in a series circuit stops all current flow, while a break in one branch of a parallel circuit does not.",
+      "The study of these laws continues to be relevant as we develop new technologies like smart grids and renewable energy systems.",
+      "Kirchhoff's laws remind us that the physical world follows predictable rules that we can understand and use to build a better future.",
+      "The consistency and reliability of these laws are what make modern technology possible."
+    ],
+    imageUrls: ["https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Kirchhoff_Current_Law.svg/1200px-Kirchhoff_Current_Law.svg.png"],
+    suggestedVideos: [
+      { title: "Kirchhoff's Laws Explained", url: "https://www.youtube.com/embed/example", thumbnail: "https://img.youtube.com/vi/example/0.jpg" }
+    ]
+  },
+  {
+    keywords: ["projectile motion"],
+    topic: "Projectile Motion",
+    summaryLines: [
+      "Projectile motion is a form of motion experienced by an object or particle that is thrown near the Earth's surface and moves along a curved path under the action of gravity only.",
+      "This curved path is called a trajectory and is always in the shape of a parabola in the absence of air resistance.",
+      "The motion is a result of two independent components: a constant horizontal velocity and a vertical motion with constant acceleration due to gravity.",
+      "These two components act perpendicularly to each other and do not affect one another, which is a key principle of classical mechanics.",
+      "The horizontal component of motion is characterized by zero acceleration, meaning the object covers equal horizontal distances in equal time intervals.",
+      "The vertical component is influenced by the constant acceleration of gravity, which acts downward and causes the vertical velocity to change over time.",
+      "At the peak of its trajectory, a projectile's vertical velocity is zero, while its horizontal velocity remains unchanged.",
+      "The total time a projectile stays in the air is known as the 'time of flight' and depends only on its initial vertical velocity and the acceleration of gravity.",
+      "The horizontal distance covered by the projectile during its time of flight is called the 'range'.",
+      "The maximum height reached by the projectile is determined by its initial vertical velocity.",
+      "Projectile motion calculations often assume that the Earth's surface is flat and that gravity is constant over the entire path.",
+      "Air resistance, also known as drag, is often ignored in simple physics problems but is a significant factor in the real world, causing the trajectory to be shorter and less symmetric.",
+      "The angle at which an object is launched significantly affects its range and maximum height.",
+      "In the absence of air resistance, a launch angle of 45 degrees provides the maximum horizontal range for a given initial velocity.",
+      "Complementary angles (e.g., 30 and 60 degrees) will result in the same range, although the maximum height and time of flight will differ.",
+      "This concept is used extensively in sports, such as calculating the optimal angle for a basketball shot, a golf drive, or a javelin throw.",
+      "In military applications, the principles of projectile motion are used to calculate the path of shells fired from artillery or the flight of missiles.",
+      "Modern ballistics also accounts for factors like the Earth's curvature, the rotation of the Earth (Coriolis effect), and varying air density.",
+      "Projectile motion is a standard topic in introductory physics because it perfectly illustrates the use of vectors and the independence of perpendicular motions.",
+      "It teaches students how to break down complex 2D motion into simpler 1D problems that can be solved using kinematic equations.",
+      "The study of projectiles has a long history, dating back to early investigations into the motion of falling bodies and the flight of arrows.",
+      "Understanding these principles allowed for the development of more accurate clocks, navigation systems, and surveying tools.",
+      "In space science, the concept of projectile motion is extended to understand the orbits of satellites, which are essentially projectiles moving so fast that they 'fall' around the curvature of the Earth.",
+      "This led to the realization that orbital motion is just a special case of projectile motion.",
+      "The equations used for projectiles are derived from the basic laws of motion and provide a high degree of predictive power.",
+      "Students preparing for competitive exams like JEE and NEET must be proficient in solving projectile problems involving varying launch heights and moving targets.",
+      "The beauty of projectile motion lies in its symmetry and the predictable nature of its path.",
+      "It is a process that we observe every day, from a fountain's spray to a child throwing a ball in a park.",
+      "Every time an object is launched into the air without its own power source, it follows the laws of projectile motion.",
+      "These principles are a testament to the consistency of physical laws across different scales and environments."
+    ],
+    imageUrls: ["https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Projectile_motion_components.svg/1200px-Projectile_motion_components.svg.png"],
+    suggestedVideos: [
+      { title: "Projectile Motion Explained", url: "https://www.youtube.com/embed/example", thumbnail: "https://img.youtube.com/vi/example/0.jpg" }
     ]
   }
 ];
@@ -205,16 +536,28 @@ const get3DModelUrl = (query: string): string | undefined => {
 const Dashboard = () => {
   const { theme, toggleTheme } = useTheme();
   const { language, setLanguage, t } = useLanguage();
-  const [query, setQuery] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
-  const [selectedContent, setSelectedContent] = useState<any>(null);
-  const [generatedContent, setGeneratedContent] = useState<GeneratedContent | null>(null);
-  const [error, setError] = useState<string | null>(null);
-  const [isListening, setIsListening] = useState(false);
   const [userData, setUserData] = useState<any>(null);
-  const [selectedImageUrl, setSelectedImageUrl] = useState<string | null>(null);
-  const [showImageModal, setShowImageModal] = useState(false);
   const [funzoneMood, setFunzoneMood] = useState<string>('happy');
+  const [showLeaderboard, setShowLeaderboard] = useState(false);
+  const [leaderboardData, setLeaderboardData] = useState<any[]>([]);
+  const [selectedExamPYQ, setSelectedExamPYQ] = useState<'KCET' | 'NEET' | 'JEE Main' | 'JEE Advanced'>('KCET');
+  const [selectedSubjectPYQ, setSelectedSubjectPYQ] = useState<'Physics' | 'Chemistry' | 'Mathematics' | 'Biology'>('Physics');
+
+  const fetchLeaderboard = () => {
+    const registeredUsers = JSON.parse(localStorage.getItem('registeredUsers') || '[]');
+    const sorted = registeredUsers.sort((a: any, b: any) => (b.xp || 0) - (a.xp || 0));
+    setLeaderboardData(sorted.slice(0, 3));
+  };
+
+  useEffect(() => {
+    fetchLeaderboard();
+    window.addEventListener('storage', fetchLeaderboard);
+    window.addEventListener('leaderboardUpdate', fetchLeaderboard);
+    return () => {
+      window.removeEventListener('storage', fetchLeaderboard);
+      window.removeEventListener('leaderboardUpdate', fetchLeaderboard);
+    };
+  }, []);
 
   const funTasks = useMemo(() => {
     if (!funzoneMood) return [];
@@ -228,6 +571,178 @@ const Dashboard = () => {
     return tasks[funzoneMood as keyof typeof tasks] || [];
   }, [funzoneMood]);
 
+  const previousYearPapers: Record<
+    'KCET' | 'NEET' | 'JEE Main' | 'JEE Advanced',
+    Record<'Physics' | 'Chemistry' | 'Mathematics' | 'Biology', { year: string; label: string; url: string }[]>
+  > = {
+    KCET: {
+      Physics: [
+        {
+          year: '2025',
+          label: 'KCET 2025 Physics Question Paper',
+          url: 'https://cetonline.karnataka.gov.in/kea/',
+        },
+        {
+          year: '2024',
+          label: 'KCET 2024 Physics Question Paper',
+          url: 'https://cetonline.karnataka.gov.in/kea/',
+        },
+      ],
+      Chemistry: [
+        {
+          year: '2025',
+          label: 'KCET 2025 Chemistry Question Paper',
+          url: 'https://cetonline.karnataka.gov.in/kea/',
+        },
+        {
+          year: '2024',
+          label: 'KCET 2024 Chemistry Question Paper',
+          url: 'https://cetonline.karnataka.gov.in/kea/',
+        },
+      ],
+      Mathematics: [
+        {
+          year: '2025',
+          label: 'KCET 2025 Mathematics Question Paper',
+          url: 'https://cetonline.karnataka.gov.in/kea/',
+        },
+        {
+          year: '2024',
+          label: 'KCET 2024 Mathematics Question Paper',
+          url: 'https://cetonline.karnataka.gov.in/kea/',
+        },
+      ],
+      Biology: [
+        {
+          year: '2025',
+          label: 'KCET 2025 Biology Question Paper',
+          url: 'https://cetonline.karnataka.gov.in/kea/',
+        },
+        {
+          year: '2024',
+          label: 'KCET 2024 Biology Question Paper',
+          url: 'https://cetonline.karnataka.gov.in/kea/',
+        },
+      ],
+    },
+    NEET: {
+      Physics: [
+        {
+          year: '2024',
+          label: 'NEET 2024 Physics Question Paper',
+          url: 'https://nta.ac.in/Downloads',
+        },
+        {
+          year: '2023',
+          label: 'NEET 2023 Physics Question Paper',
+          url: 'https://nta.ac.in/Downloads',
+        },
+      ],
+      Chemistry: [
+        {
+          year: '2024',
+          label: 'NEET 2024 Chemistry Question Paper',
+          url: 'https://nta.ac.in/Downloads',
+        },
+        {
+          year: '2023',
+          label: 'NEET 2023 Chemistry Question Paper',
+          url: 'https://nta.ac.in/Downloads',
+        },
+      ],
+      Mathematics: [],
+      Biology: [
+        {
+          year: '2024',
+          label: 'NEET 2024 Biology Question Paper',
+          url: 'https://nta.ac.in/Downloads',
+        },
+        {
+          year: '2023',
+          label: 'NEET 2023 Biology Question Paper',
+          url: 'https://nta.ac.in/Downloads',
+        },
+      ],
+    },
+    'JEE Main': {
+      Physics: [
+        {
+          year: '2024',
+          label: 'JEE Main 2024 January Physics Question Paper',
+          url: 'https://nta.ac.in/Downloads',
+        },
+        {
+          year: '2024',
+          label: 'JEE Main 2024 April Physics Question Paper',
+          url: 'https://nta.ac.in/Downloads',
+        },
+      ],
+      Chemistry: [
+        {
+          year: '2024',
+          label: 'JEE Main 2024 January Chemistry Question Paper',
+          url: 'https://nta.ac.in/Downloads',
+        },
+        {
+          year: '2024',
+          label: 'JEE Main 2024 April Chemistry Question Paper',
+          url: 'https://nta.ac.in/Downloads',
+        },
+      ],
+      Mathematics: [
+        {
+          year: '2024',
+          label: 'JEE Main 2024 January Mathematics Question Paper',
+          url: 'https://nta.ac.in/Downloads',
+        },
+        {
+          year: '2024',
+          label: 'JEE Main 2024 April Mathematics Question Paper',
+          url: 'https://nta.ac.in/Downloads',
+        },
+      ],
+      Biology: [],
+    },
+    'JEE Advanced': {
+      Physics: [
+        {
+          year: '2024',
+          label: 'JEE Advanced 2024 Physics Paper 1',
+          url: 'https://jeeadv.ac.in/archive.html',
+        },
+        {
+          year: '2024',
+          label: 'JEE Advanced 2024 Physics Paper 2',
+          url: 'https://jeeadv.ac.in/archive.html',
+        },
+      ],
+      Chemistry: [
+        {
+          year: '2024',
+          label: 'JEE Advanced 2024 Chemistry Paper 1',
+          url: 'https://jeeadv.ac.in/archive.html',
+        },
+        {
+          year: '2024',
+          label: 'JEE Advanced 2024 Chemistry Paper 2',
+          url: 'https://jeeadv.ac.in/archive.html',
+        },
+      ],
+      Mathematics: [
+        {
+          year: '2024',
+          label: 'JEE Advanced 2024 Mathematics Paper 1',
+          url: 'https://jeeadv.ac.in/archive.html',
+        },
+        {
+          year: '2024',
+          label: 'JEE Advanced 2024 Mathematics Paper 2',
+          url: 'https://jeeadv.ac.in/archive.html',
+        },
+      ],
+      Biology: [],
+    },
+  };
 
   useEffect(() => {
     const stored = localStorage.getItem('userData');
@@ -238,15 +753,15 @@ const Dashboard = () => {
 
   const mockUser = userData
     ? {
-        age: userData.age,
-        class: userData.classLevel,
-        purpose: userData.purpose || 'Regular Study'
-      }
+      age: userData.age,
+      class: userData.class || '10th',
+      purpose: userData.purpose || 'KCET'
+    }
     : {
-        age: 15,
-        class: '10th',
-        purpose: 'Regular Study'
-      };
+      age: 15,
+      class: '10th',
+      purpose: 'KCET'
+    };
 
   const allSuggestedContent = [
     {
@@ -257,7 +772,7 @@ const Dashboard = () => {
       description: "Master Newton's laws and their applications",
       summary:
         "Newton's laws of motion form the foundation of classical mechanics. The first law (Law of Inertia) states that an object at rest stays at rest, and an object in motion stays in motion with the same speed and in the same direction unless acted upon by an unbalanced force. The second law (F=ma) quantitatively relates force, mass, and acceleration, showing that acceleration is directly proportional to net force and inversely proportional to mass. The third law states that for every action, there is an equal and opposite reaction. These laws explain everything from falling apples to rocket propulsion and are crucial for understanding mechanics in physics.",
-      relevance: 'Essential for Class 10 board exams and JEE preparation'
+      relevance: 'Essential for JEE preparation and NEET Physics'
     },
     {
       id: 2,
@@ -267,7 +782,7 @@ const Dashboard = () => {
       description: 'Learn to solve complex quadratic problems',
       summary:
         'Quadratic equations are polynomial equations of degree 2, typically written in the form ax² + bx + c = 0 where a ≠ 0. They can be solved using multiple methods: factoring (when the equation can be written as a product of linear factors), completing the square (rewriting the equation to isolate the square term), or the quadratic formula x = (-b ± √(b²-4ac)) / 2a. The discriminant D = b²-4ac determines the nature of roots: if D > 0, two distinct real roots; D = 0, one repeated real root; D < 0, two complex roots. Quadratic equations appear in physics, engineering, and real-world applications like projectile motion and optimization problems.',
-      relevance: 'High weightage in competitive exams like JEE, NEET, and board exams'
+      relevance: 'High weightage in competitive exams like JEE Main and Advanced'
     },
     {
       id: 3,
@@ -287,17 +802,7 @@ const Dashboard = () => {
       description: 'Perfect your grammar for exams',
       summary:
         'Master essential grammar concepts including tenses, voice (active/passive), narration (direct/indirect speech), subject-verb agreement, articles, and prepositions. Understanding sentence structure and correct word usage improves both written and spoken communication.',
-      relevance: 'Critical for language section in all exams'
-    },
-    {
-      id: 5,
-      title: 'Current Affairs: National Events',
-      category: 'GK',
-      difficulty: 'Medium',
-      description: 'Stay updated with important events',
-      summary:
-        'Current affairs cover recent developments in politics, economics, sports, science, and international relations. Focus on government schemes, policy changes, important appointments, awards, and significant national events. Regular reading helps in competitive exam preparation.',
-      relevance: 'Essential for competitive exams'
+      relevance: 'Critical for language section in KCET and other exams'
     },
     {
       id: 6,
@@ -307,7 +812,7 @@ const Dashboard = () => {
       description: 'Develop analytical thinking skills',
       summary:
         'Logical reasoning involves identifying patterns, sequences, and relationships. Common types include number series, letter series, coding-decoding, blood relations, and syllogisms. Practice improves speed and accuracy in solving these problems systematically.',
-      relevance: 'High scoring section in aptitude tests'
+      relevance: 'High scoring section in aptitude tests and KCET'
     },
     {
       id: 7,
@@ -316,48 +821,12 @@ const Dashboard = () => {
       difficulty: 'Easy',
       description: 'Explore the building blocks of life',
       summary: 'Cells are the basic unit of life. Eukaryotic cells have a nucleus and organelles, while prokaryotic cells lack a nucleus. Understanding cell membrane, cytoplasm, and organelles is fundamental.',
-      relevance: 'Core biology concept'
-    },
-    {
-      id: 8,
-      title: 'History: Ancient Civilizations',
-      category: 'History',
-      difficulty: 'Medium',
-      description: 'Journey through ancient history',
-      summary: 'Ancient civilizations like Egypt, Mesopotamia, Indus Valley shaped human history. Key aspects include governance, trade, religion, and technological advancements.',
-      relevance: 'Important for history exams'
-    },
-    {
-      id: 9,
-      title: 'Computer Science: Algorithms',
-      category: 'Technology',
-      difficulty: 'Hard',
-      description: 'Learn fundamental algorithms',
-      summary: 'Algorithms are step-by-step procedures for calculations. Sorting, searching, and graph algorithms are essential in computer science.',
-      relevance: 'For tech competitive exams'
-    },
-    {
-      id: 10,
-      title: 'Engineering Mathematics',
-      category: 'Engineering',
-      difficulty: 'Medium',
-      description: 'Core math for engineering students',
-      summary: 'Differential equations, linear algebra, complex analysis, and numerical methods form the backbone of engineering mathematics.',
-      relevance: 'Essential for engineering courses'
-    },
-    {
-      id: 11,
-      title: 'Medical Anatomy',
-      category: 'Medical',
-      difficulty: 'Hard',
-      description: 'Human body systems and structures',
-      summary: 'Study of human anatomy including skeletal, muscular, cardiovascular, and nervous systems. Crucial for medical understanding.',
-      relevance: 'Foundation for medical studies'
+      relevance: 'Core biology concept for NEET'
     },
     {
       id: 12,
       title: 'Physics for JEE',
-      category: 'JEE',
+      category: 'JEE Main',
       difficulty: 'Hard',
       description: 'Advanced physics concepts for JEE preparation',
       summary: 'Mechanics, thermodynamics, electromagnetism, optics, and modern physics with problem-solving techniques.',
@@ -373,42 +842,6 @@ const Dashboard = () => {
       relevance: 'Essential for NEET preparation'
     },
     {
-      id: 14,
-      title: 'Current Affairs for UPSC',
-      category: 'UPSC',
-      difficulty: 'Medium',
-      description: 'Latest national and international events',
-      summary: 'Analysis of current affairs, government policies, international relations, and socio-economic developments.',
-      relevance: 'Key component of UPSC preparation'
-    },
-    {
-      id: 15,
-      title: 'General Knowledge for Govt Exams',
-      category: 'Govt Exam',
-      difficulty: 'Easy',
-      description: 'Static GK and general awareness',
-      summary: 'History, geography, polity, economy, science, and technology basics for competitive examinations.',
-      relevance: 'Foundation for all government job exams'
-    },
-    {
-      id: 16,
-      title: 'English Literature for BA',
-      category: 'BA',
-      difficulty: 'Medium',
-      description: 'Classic literature and analysis',
-      summary: 'Study of poetry, prose, drama, and literary criticism from various periods and authors.',
-      relevance: 'Core for BA English programs'
-    },
-    {
-      id: 17,
-      title: 'Biology for BSc',
-      category: 'BSc',
-      difficulty: 'Medium',
-      description: 'Life sciences fundamentals',
-      summary: 'Cell biology, genetics, ecology, evolution, and microbiology concepts for science graduates.',
-      relevance: 'Essential for BSc Biology'
-    },
-    {
       id: 18,
       title: 'Aptitude for KCET',
       category: 'KCET',
@@ -418,22 +851,13 @@ const Dashboard = () => {
       relevance: 'KCET entrance preparation'
     },
     {
-      id: 19,
-      title: 'State Administration for KAS',
-      category: 'KAS',
-      difficulty: 'Hard',
-      description: 'Karnataka state administration',
-      summary: 'Karnataka history, polity, economy, and administrative structure for KAS aspirants.',
-      relevance: 'Specific to Karnataka Administrative Service'
-    },
-    {
       id: 20,
       title: 'Physics: Optics and Light',
       category: 'Science',
       difficulty: 'Medium',
       description: 'Understanding light and optical phenomena',
       summary: 'Study of reflection, refraction, lenses, mirrors, and wave nature of light. Covers ray optics, wave optics, and applications in daily life.',
-      relevance: 'Important for board exams and competitive entrance'
+      relevance: 'Important for NEET and JEE Physics'
     },
     {
       id: 21,
@@ -442,7 +866,7 @@ const Dashboard = () => {
       difficulty: 'Medium',
       description: 'Master angles and trigonometric functions',
       summary: 'Trigonometric ratios, identities, equations, and applications. Includes sine, cosine, tangent functions and their inverses.',
-      relevance: 'Essential for geometry and calculus'
+      relevance: 'Essential for JEE Main and Advanced'
     },
     {
       id: 22,
@@ -451,7 +875,7 @@ const Dashboard = () => {
       difficulty: 'Medium',
       description: 'Types of chemical bonds and their properties',
       summary: 'Ionic, covalent, and metallic bonding. Lewis structures, VSEPR theory, and molecular geometry explanations.',
-      relevance: 'Foundation for understanding chemical reactions'
+      relevance: 'Foundation for understanding chemical reactions in NEET/JEE'
     },
     {
       id: 23,
@@ -460,169 +884,16 @@ const Dashboard = () => {
       difficulty: 'Medium',
       description: 'Functioning of human body systems',
       summary: 'Digestive, respiratory, circulatory, nervous, and endocrine systems. Homeostasis and organ functions.',
-      relevance: 'Core for medical and biology studies'
-    },
-    {
-      id: 24,
-      title: 'Computer Science: Programming Basics',
-      category: 'Technology',
-      difficulty: 'Easy',
-      description: 'Introduction to coding and algorithms',
-      summary: 'Variables, loops, conditionals, functions, and basic data structures. Introduction to problem-solving with code.',
-      relevance: 'Essential for tech careers'
-    },
-    {
-      id: 25,
-      title: 'Physics: Electricity and Magnetism',
-      category: 'Science',
-      difficulty: 'Medium',
-      description: 'Electric circuits and magnetic fields',
-      summary: 'Ohm\'s law, series/parallel circuits, electromagnetic induction, and magnetic effects of current.',
-      relevance: 'Important for physics and engineering'
-    },
-    {
-      id: 26,
-      title: 'Mathematics: Coordinate Geometry',
-      category: 'Math',
-      difficulty: 'Medium',
-      description: 'Graphs and coordinate systems',
-      summary: 'Distance formula, section formula, straight lines, circles, and parabolas in coordinate plane.',
-      relevance: 'Analytical geometry fundamentals'
-    },
-    {
-      id: 27,
-      title: 'Chemistry: Organic Chemistry Basics',
-      category: 'Science',
-      difficulty: 'Medium',
-      description: 'Carbon compounds and reactions',
-      summary: 'Hydrocarbons, functional groups, isomerism, and basic organic reactions like substitution and addition.',
-      relevance: 'Foundation for organic chemistry'
-    },
-    {
-      id: 28,
-      title: 'English: Reading Comprehension',
-      category: 'Language',
-      difficulty: 'Easy',
-      description: 'Improve reading and understanding skills',
-      summary: 'Techniques for reading passages, identifying main ideas, inferences, and answering comprehension questions.',
-      relevance: 'Critical for all competitive exams'
-    },
-    {
-      id: 29,
-      title: 'History: Modern India',
-      category: 'History',
-      difficulty: 'Medium',
-      description: 'Freedom struggle and independence',
-      summary: 'British rule, freedom movement, partition, and post-independence developments in India.',
-      relevance: 'Essential for history and competitive exams'
-    },
-    {
-      id: 30,
-      title: 'Physics: Thermodynamics',
-      category: 'Science',
-      difficulty: 'Hard',
-      description: 'Heat, work, and energy transformations',
-      summary: 'Laws of thermodynamics, heat engines, entropy, and thermodynamic processes.',
-      relevance: 'Advanced physics for engineering'
-    },
-    {
-      id: 31,
-      title: 'Mathematics: Calculus Basics',
-      category: 'Math',
-      difficulty: 'Hard',
-      description: 'Limits, derivatives, and integrals',
-      summary: 'Introduction to differential and integral calculus, applications in physics and engineering.',
-      relevance: 'Foundation for advanced mathematics'
-    },
-    {
-      id: 32,
-      title: 'Chemistry: Electrochemistry',
-      category: 'Science',
-      difficulty: 'Medium',
-      description: 'Chemical reactions and electricity',
-      summary: 'Electrochemical cells, redox reactions, electrolysis, and Faraday\'s laws.',
-      relevance: 'Important for chemistry and engineering'
-    },
-    {
-      id: 33,
-      title: 'Biology: Genetics and Evolution',
-      category: 'Science',
-      difficulty: 'Medium',
-      description: 'Heredity and species development',
-      summary: 'Mendelian genetics, DNA structure, mutations, natural selection, and evolutionary theory.',
-      relevance: 'Core concepts in modern biology'
-    },
-    {
-      id: 34,
-      title: 'Computer Science: Data Structures',
-      category: 'Technology',
-      difficulty: 'Hard',
-      description: 'Arrays, linked lists, stacks, and queues',
-      summary: 'Fundamental data structures, their operations, and applications in programming.',
-      relevance: 'Essential for software development'
-    },
-    {
-      id: 35,
-      title: 'Physics: Modern Physics',
-      category: 'Science',
-      difficulty: 'Hard',
-      description: 'Quantum mechanics and relativity',
-      summary: 'Photoelectric effect, dual nature of matter, nuclear physics, and special relativity.',
-      relevance: 'Advanced physics concepts'
-    },
-    {
-      id: 36,
-      title: 'Mathematics: Probability',
-      category: 'Math',
-      difficulty: 'Medium',
-      description: 'Chance and random events',
-      summary: 'Probability axioms, conditional probability, Bayes theorem, and distributions.',
-      relevance: 'Statistics and data analysis'
-    },
-    {
-      id: 37,
-      title: 'Chemistry: Physical Chemistry',
-      category: 'Science',
-      difficulty: 'Hard',
-      description: 'Chemical kinetics and equilibrium',
-      summary: 'Rate of reactions, equilibrium constants, Le Chatelier\'s principle, and solution chemistry.',
-      relevance: 'Advanced chemistry concepts'
-    },
-    {
-      id: 38,
-      title: 'English: Writing Skills',
-      category: 'Language',
-      difficulty: 'Easy',
-      description: 'Essay and letter writing',
-      summary: 'Structure of essays, formal letters, report writing, and grammar in writing.',
-      relevance: 'Communication skills for exams'
-    },
-    {
-      id: 39,
-      title: 'Geography: World Geography',
-      category: 'Geography',
-      difficulty: 'Medium',
-      description: 'Continents, countries, and physical features',
-      summary: 'Major continents, countries, rivers, mountains, climate zones, and natural resources.',
-      relevance: 'General knowledge and competitive exams'
-    },
-    {
-      id: 40,
-      title: 'Economics: Microeconomics',
-      category: 'Economics',
-      difficulty: 'Medium',
-      description: 'Individual economic decisions',
-      summary: 'Demand and supply, elasticity, consumer behavior, and market structures.',
-      relevance: 'Business and social sciences'
+      relevance: 'Core for NEET Biology'
     },
     {
       id: 41,
       title: 'Physics: Mechanics for JEE',
-      category: 'JEE',
+      category: 'JEE Advanced',
       difficulty: 'Hard',
       description: 'Advanced mechanics problems',
       summary: 'Kinematics, dynamics, work-energy, rotational mechanics with JEE-level problem solving.',
-      relevance: 'Critical for JEE Physics'
+      relevance: 'Critical for JEE Advanced Physics'
     },
     {
       id: 42,
@@ -632,62 +903,32 @@ const Dashboard = () => {
       description: 'Elements and their compounds',
       summary: 'Periodic properties, coordination compounds, metallurgy, and qualitative analysis.',
       relevance: 'NEET Chemistry syllabus'
-    },
-    {
-      id: 43,
-      title: 'Biology: Ecology and Environment',
-      category: 'Science',
-      difficulty: 'Easy',
-      description: 'Interactions in ecosystems',
-      summary: 'Ecosystems, food chains, biodiversity, pollution, and environmental conservation.',
-      relevance: 'Environmental science basics'
-    },
-    {
-      id: 44,
-      title: 'Computer Science: Web Development',
-      category: 'Technology',
-      difficulty: 'Medium',
-      description: 'HTML, CSS, and JavaScript basics',
-      summary: 'Building websites, responsive design, and interactive web applications.',
-      relevance: 'Modern web development skills'
-    },
-    {
-      id: 45,
-      title: 'Mathematics: Statistics',
-      category: 'Math',
-      difficulty: 'Medium',
-      description: 'Data analysis and interpretation',
-      summary: 'Mean, median, mode, variance, standard deviation, and data visualization.',
-      relevance: 'Data science and research'
-    },
-    {
-      id: 46,
-      title: 'Chemistry: Biochemistry',
-      category: 'Science',
-      difficulty: 'Medium',
-      description: 'Chemistry of living organisms',
-      summary: 'Carbohydrates, proteins, lipids, nucleic acids, and metabolic pathways.',
-      relevance: 'Biology and medical sciences'
-    },
-    {
-      id: 47,
-      title: 'English: Vocabulary Building',
-      category: 'Language',
-      difficulty: 'Easy',
-      description: 'Expand your word knowledge',
-      summary: 'Synonyms, antonyms, idioms, phrasal verbs, and contextual usage of words.',
-      relevance: 'Language proficiency and exams'
-    },
-    {
-      id: 48,
-      title: 'History: World History',
-      category: 'History',
-      difficulty: 'Medium',
-      description: 'Major civilizations and events',
-      summary: 'Ancient, medieval, and modern world history, major wars, revolutions, and discoveries.',
-      relevance: 'Global perspective and competitive exams'
     }
   ];
+
+  const getCategoryStyle = (category: string): string => {
+    const cat = category.toLowerCase();
+    if (cat === 'science') return 'bg-rose-500/20 text-rose-300 border border-rose-500/30';
+    if (cat === 'math') return 'bg-amber-500/20 text-amber-300 border border-amber-500/30';
+    if (cat === 'language') return 'bg-teal-500/20 text-teal-300 border border-teal-500/30';
+    if (cat === 'aptitude') return 'bg-purple-500/20 text-purple-300 border border-purple-500/30';
+    if (cat === 'biology') return 'bg-green-500/20 text-green-300 border border-green-500/30';
+    if (cat === 'physics') return 'bg-sky-500/20 text-sky-300 border border-sky-500/30';
+    if (cat === 'chemistry') return 'bg-violet-500/20 text-violet-300 border border-violet-500/30';
+    if (cat === 'kcet') return 'bg-pink-500/20 text-pink-300 border border-pink-500/30';
+    if (cat === 'neet') return 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/30';
+    if (cat === 'jee main') return 'bg-indigo-500/20 text-indigo-300 border border-indigo-500/30';
+    if (cat === 'jee advanced') return 'bg-orange-500/20 text-orange-300 border border-orange-500/30';
+    return 'bg-primary/20 text-primary border border-primary/30';
+  };
+
+  const getDifficultyStyle = (difficulty: string): string => {
+    const d = difficulty.toLowerCase();
+    if (d === 'easy') return 'text-green-400';
+    if (d === 'medium') return 'text-amber-400';
+    if (d === 'hard') return 'text-red-400';
+    return 'text-muted-foreground';
+  };
 
   const getFilteredContent = () => {
     if (!userData?.purpose) return allSuggestedContent.slice(0, 6);
@@ -695,17 +936,28 @@ const Dashboard = () => {
     let filtered = allSuggestedContent.filter(content => {
       const cat = content.category.toLowerCase();
       const title = content.title.toLowerCase();
-      return cat.includes(purpose) || title.includes(purpose) || purpose.includes(cat) ||
-             (purpose === 'engineering' && ['science', 'math', 'technology', 'engineering', 'jee'].includes(cat)) ||
-             (purpose === 'medical' && ['science', 'medical', 'neet'].includes(cat)) ||
-             (purpose === 'bsc' && ['science', 'math', 'bsc'].includes(cat)) ||
-             (purpose === 'ba' && ['language', 'history', 'ba'].includes(cat));
+
+      // Match exactly with the purpose
+      if (purpose === 'kcet') {
+        return cat.includes('kcet') || ['science', 'math', 'aptitude', 'language'].includes(cat);
+      }
+      if (purpose === 'neet') {
+        return cat.includes('neet') || ['science', 'biology', 'chemistry', 'physics'].includes(cat);
+      }
+      if (purpose === 'jee_mains') {
+        return cat.includes('jee main') || ['science', 'math', 'physics', 'chemistry'].includes(cat);
+      }
+      if (purpose === 'jee_advanced') {
+        return cat.includes('jee advanced') || ['science', 'math', 'physics', 'chemistry'].includes(cat);
+      }
+
+      return cat.includes(purpose) || title.includes(purpose) || purpose.includes(cat);
     });
+
     if (filtered.length < 6) {
-      // Add more general science/math topics if needed
+      // Add more related topics if needed
       const additional = allSuggestedContent.filter(content =>
-        !filtered.find(f => f.id === content.id) &&
-        ['science', 'math', 'language'].includes(content.category.toLowerCase())
+        !filtered.find(f => f.id === content.id)
       ).slice(0, 6 - filtered.length);
       filtered = [...filtered, ...additional];
     }
@@ -714,253 +966,24 @@ const Dashboard = () => {
 
   const suggestedContent = useMemo(() => getFilteredContent(), [userData?.purpose]);
 
-  const processQuery = async (input: string) => {
-    const trimmed = input.trim();
-    if (!trimmed) return;
-    setIsLoading(true);
-    setError(null);
-    setGeneratedContent(null);
-    setSelectedContent(null);
-    toast.info('🤖 ' + t('processing') + ' learning content...');
-    try {
-      const normalized = trimmed.toLowerCase();
-      if (/^[a-z]$/.test(normalized)) {
-        const letter = normalized.toUpperCase();
-        const lower = normalized.toLowerCase();
-        const topic = `Letter ${letter}`;
-        const summaryLines = [
-          `The letter ${letter} is the ${letter.charCodeAt(0) - 64}th letter in the English alphabet.`,
-          `Uppercase: ${letter}`,
-          `Lowercase: ${lower}`,
-          `It is a ${'AEIOU'.includes(letter) ? 'vowel' : 'consonant'}.`,
-          `Phonetic sound: /${lower}/`,
-          `Example word starting with ${letter}: ${letter}ntelope` // placeholder
-        ];
-
-        const curatedImage = curatedTopics.find((entry) =>
-          entry.topic.toLowerCase().includes(topic.toLowerCase())
-        )?.imageUrls?.[0];
-
-        const imageUrls = [
-          curatedImage || `https://source.unsplash.com/1920x1080/?${encodeURIComponent(trimmed)},education&sig=${Date.now()}`,
-        ];
-
-        const suggestedVideos = [
-          {
-            title: `Learn Letter ${letter} - Phonics`,
-            url: getYouTubeSearchUrl(`letter ${letter} phonics`),
-          },
-          {
-            title: `Letter ${letter} - Writing Practice`,
-            url: getYouTubeSearchUrl(`letter ${letter} writing practice`),
-          },
-          {
-            title: `Alphabet Song - Letter ${letter}`,
-            url: getYouTubeSearchUrl(`alphabet song letter ${letter}`),
-          },
-          {
-            title: `${letter} Words for Kids`,
-            url: getYouTubeSearchUrl(`letter ${letter} words for kids`),
-          },
-        ];
-        setGeneratedContent({
-          topic,
-          summaryLines,
-          imageUrls,
-          suggestedVideos,
-          bookRecommendations: getBookRecommendations(topic),
-          threeDModelUrl: get3DModelUrl(topic),
-        });
-        toast.success('✨ Content generated successfully!');
-        return;
-      }
-      const curatedMatch = curatedTopics.find((entry) =>
-        entry.keywords.some((keyword) => normalized.includes(keyword))
-      );
-      if (curatedMatch) {
-        setGeneratedContent({
-          topic: curatedMatch.topic,
-          summaryLines: curatedMatch.summaryLines.slice(0, 10),
-          imageUrls: curatedMatch.imageUrls.slice(0, 1),
-          suggestedVideos: curatedMatch.suggestedVideos,
-          bookRecommendations: getBookRecommendations(curatedMatch.topic),
-          threeDModelUrl: get3DModelUrl(curatedMatch.topic),
-        });
-        toast.success('✨ Content generated successfully!');
-        return;
-      }
-      const encodedTopic = encodeURIComponent(trimmed);
-      const baseImageUrls = getUnsplashImageUrls(trimmed);
-      const suggestedVideos = [
-        { 
-          title: `${trimmed} - Complete Tutorial`, 
-          url: getYouTubeSearchUrl(`${trimmed} complete tutorial`),
-          thumbnail: '',
-          videoId: ''
-        },
-        { 
-          title: `${trimmed} - Explained Simply`, 
-          url: getYouTubeSearchUrl(`${trimmed} explained simply`),
-          thumbnail: '',
-          videoId: ''
-        },
-        { 
-          title: `Learn ${trimmed} - Step by Step`, 
-          url: getYouTubeSearchUrl(`learn ${trimmed} step by step`),
-          thumbnail: '',
-          videoId: ''
-        },
-        { 
-          title: `${trimmed} - Crash Course`, 
-          url: getYouTubeSearchUrl(`${trimmed} crash course`),
-          thumbnail: '',
-          videoId: ''
-        }
-      ];
-      try {
-        const response = await fetch(`https://en.wikipedia.org/api/rest_v1/page/summary/${encodedTopic}`);
-        if (!response.ok) {
-          throw new Error('Topic not found');
-        }
-        const data = await response.json();
-        const extract = typeof data.extract === 'string' ? data.extract : '';
-        const title = typeof data.title === 'string' ? data.title : trimmed;
-        const sentences = extract ? extract.match(/[^.!?]+[.!?]?/g) ?? [] : [];
-        const summaryLines = sentences.map((sentence) => sentence.trim()).filter(Boolean).slice(0, 10);
-        const wikiImage = typeof (data as any)?.thumbnail?.source === 'string' ? (data as any).thumbnail.source : null;
-        const imageUrls = [wikiImage || baseImageUrls[0]];
-        
-        // Enhanced suggested videos with more variety
-        const enhancedSuggestedVideos = [
-          { 
-            title: `${title} - Complete Explanation`, 
-            url: getYouTubeSearchUrl(`${title} complete explanation`),
-            thumbnail: '',
-            videoId: ''
-          },
-          { 
-            title: `${title} - Tutorial for Beginners`, 
-            url: getYouTubeSearchUrl(`${title} tutorial beginners`),
-            thumbnail: '',
-            videoId: ''
-          },
-          { 
-            title: `${title} - Advanced Concepts`, 
-            url: getYouTubeSearchUrl(`${title} advanced concepts`),
-            thumbnail: '',
-            videoId: ''
-          },
-          { 
-            title: `${title} - Practical Examples`, 
-            url: getYouTubeSearchUrl(`${title} practical examples`),
-            thumbnail: '',
-            videoId: ''
-          }
-        ];
-        
-        setGeneratedContent({
-          topic: title,
-          summaryLines: summaryLines.length > 0 ? summaryLines : [`Information about ${trimmed}.`],
-          imageUrls: [imageUrls[0]],
-          suggestedVideos: enhancedSuggestedVideos,
-          bookRecommendations: getBookRecommendations(title),
-          threeDModelUrl: get3DModelUrl(title)
-        });
-        toast.success(t('contentGenerated'));
-      } catch (err) {
-        const fallbackSuggestedVideos = [
-          {
-            title: `${trimmed} - Educational Video`,
-            url: getYouTubeSearchUrl(`${trimmed} educational`),
-          },
-          {
-            title: `${trimmed} - Learn Online`,
-            url: getYouTubeSearchUrl(`${trimmed} learn online`),
-          },
-          {
-            title: `${trimmed} - Study Guide`,
-            url: getYouTubeSearchUrl(`${trimmed} study guide`),
-          },
-          {
-            title: `${trimmed} - Lecture Series`,
-            url: getYouTubeSearchUrl(`${trimmed} lecture series`),
-          },
-        ];
-        setGeneratedContent({
-          topic: trimmed,
-          summaryLines: [`Search results for ${trimmed}.`, 'Please explore the videos and images for more information.'],
-          imageUrls: [baseImageUrls[0]],
-          suggestedVideos: fallbackSuggestedVideos,
-          bookRecommendations: getBookRecommendations(trimmed),
-          threeDModelUrl: get3DModelUrl(trimmed)
-        });
-        toast.success(t('fallbackContent'));
-      }
-    } catch (err) {
-      const message = err instanceof Error ? err.message : '';
-      if (message === 'Topic not found') {
-        setError(t('topicNotFound'));
-      } else if (message === 'No educational content found') {
-        setError(t('noEducationalContent'));
-      } else {
-        setError(t('fetchError'));
-      }
-      toast.error(t('unableToFetch'));
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  const handleSearch = async (e: React.FormEvent) => {
-    e.preventDefault();
-    await processQuery(query);
-  };
-
-  const handleVoiceInput = () => {
-    const SpeechRecognition = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
-    if (!SpeechRecognition) {
-      toast.error(t('voiceNotSupported'));
-      return;
-    }
-    const recognition = new SpeechRecognition();
-    recognition.lang = 'en-US';
-    recognition.interimResults = false;
-    recognition.maxAlternatives = 1;
-    recognition.onstart = () => {
-      setIsListening(true);
-      toast.info(t('listening'));
-    };
-    recognition.onend = () => {
-      setIsListening(false);
-    };
-    recognition.onerror = () => {
-      setIsListening(false);
-      toast.error(t('microphoneError'));
-    };
-    recognition.onresult = (event: any) => {
-      const transcript = Array.from(event.results)
-        .map((result: any) => result[0].transcript)
-        .join(' ')
-        .trim();
-      if (transcript) {
-        setQuery(transcript);
-        void processQuery(transcript);
-      }
-    };
-    recognition.start();
-  };
-
-  const handleContentClick = (content: any) => {
-    // Redirect to YouTube search for the content
-    const searchQuery = `${content.title} ${content.category} explained`;
-    const youtubeUrl = `https://www.youtube.com/results?search_query=${encodeURIComponent(searchQuery)}`;
-    window.open(youtubeUrl, '_blank');
-  };
+  // Render Dashboard
 
 
 
   return (
     <div className="relative min-h-screen overflow-hidden bg-background">
+      {/* Navigation Bar */}
+      <nav className="bg-card border-b border-primary/30 px-4 py-3">
+        <div className="max-w-6xl mx-auto flex justify-between items-center">
+          <div className="text-sm text-muted-foreground">
+            Hi {userData?.name || 'User'}
+          </div>
+          <Button variant="outline" className="border-primary/30 hover:bg-primary/10">
+            Dashboard
+          </Button>
+        </div>
+      </nav>
+
       <ParticleBackground />
       <div
         className="fixed top-[25%] right-[30%] w-[500px] h-[500px] rounded-full opacity-25"
@@ -978,6 +1001,10 @@ const Dashboard = () => {
       />
       <div className="relative z-10 min-h-screen px-4 py-8">
         <div className="max-w-6xl mx-auto space-y-8">
+          <div id="greeting" className="text-center text-lg font-semibold text-primary">
+            Hi, {localStorage.getItem('username') || 'User'} 👋 Continue your learning!
+          </div>
+
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-4">
             <DateTimeDisplay />
             <div className="flex gap-4">
@@ -989,6 +1016,15 @@ const Dashboard = () => {
               >
                 {theme === 'light' ? <Moon className="w-4 h-4 mr-2" /> : <Sun className="w-4 h-4 mr-2" />}
                 {theme === 'light' ? t('darkMode') : t('lightMode')}
+              </Button>
+              <Button
+                variant="outline"
+                size="sm"
+                className="border-amber-400/60 hover:bg-amber-500/10 flex items-center gap-2 rounded-full cursor-pointer"
+                onClick={() => setShowLeaderboard(true)}
+              >
+                <Trophy className="w-4 h-4 text-amber-300" />
+                <span className="text-xs font-semibold tracking-wide">Leaderboard</span>
               </Button>
               <Select value={language} onValueChange={(value) => setLanguage(value as any)}>
                 <SelectTrigger className="w-32 border-primary/30">
@@ -1018,68 +1054,30 @@ const Dashboard = () => {
               </Select>
             </div>
           </div>
-          <div className="text-center space-y-2">
-            <h1 className="text-4xl md:text-6xl font-bold gradient-text">{t('dashboardTitle')}</h1>
-            <p className="text-muted-foreground">{t('dashboardSubtitle')}</p>
+          {/* ── Learning Dashboard Hero ── */}
+          <div className="text-center space-y-3">
+            <h1
+              className="text-5xl md:text-7xl font-extrabold tracking-tight"
+              style={{
+                background: 'linear-gradient(135deg, #ff1b8d 0%, #ff6ec7 50%, #c040fb 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+                textShadow: 'none',
+                filter: 'drop-shadow(0 0 24px rgba(255,27,141,0.55))',
+              }}
+            >
+              {t('dashboardTitle')}
+            </h1>
+            <p className="text-muted-foreground flex items-center justify-center gap-2 text-base">
+              {t('dashboardSubtitle')}
+              <span
+                className="inline-block w-2.5 h-2.5 rounded-full animate-pulse"
+                style={{ background: '#00d9ff', boxShadow: '0 0 8px 3px rgba(0,217,255,0.7)' }}
+              />
+            </p>
           </div>
-          <div className="max-w-3xl mx-auto">
-            <form onSubmit={handleSearch} className="relative">
-              <div className="flex gap-2 items-center bg-card border-2 border-primary/30 rounded-full p-2 glow-pink">
-                <Search className="w-5 h-5 text-muted-foreground ml-4" />
-                <Input
-                  type="text"
-                  placeholder={t('searchPlaceholder')}
-                  value={query}
-                  onChange={(e) => setQuery(e.target.value)}
-                  className="flex-1 border-0 bg-transparent focus-visible:ring-0 text-lg"
-                />
-                <Button
-                  type="button"
-                  size="icon"
-                  variant="ghost"
-                  onClick={handleVoiceInput}
-                  className={`rounded-full hover:bg-primary/20 ${isListening ? 'bg-primary text-primary-foreground animate-pulse' : ''}`}
-                  aria-pressed={isListening}
-                >
-                  <Mic className="w-5 h-5" />
-                </Button>
-                <Button
-                  type="submit"
-                  size="lg"
-                  disabled={isLoading}
-                  className="bg-gradient-to-r from-primary to-accent rounded-full px-8 glow-pink hover:scale-105 transition-all"
-                >
-                  {isLoading ? t('processing') : t('searchButton')}
-                </Button>
-              </div>
-            </form>
-          </div>
-          {error && (
-            <div className="max-w-3xl mx-auto w-full">
-              <div className="rounded-2xl border border-red-500/40 bg-red-500/10 p-4 text-red-500 font-semibold text-center">
-                {error}
-              </div>
-            </div>
-          )}
-          {isLoading && (
-            <div className="max-w-4xl mx-auto w-full space-y-8">
-              {/* Images Section Loading */}
-              <div className="space-y-3">
-                <Skeleton className="h-6 w-48" />
-                <Skeleton className="h-72 w-full rounded-3xl" />
-              </div>
-              {/* Videos Section Loading */}
-              <div className="space-y-3">
-                <Skeleton className="h-6 w-48" />
-                <Skeleton className="aspect-video w-full rounded-3xl" />
-              </div>
-              {/* Text Section Loading */}
-              <div className="space-y-3">
-                <Skeleton className="h-8 w-64" />
-                <Skeleton className="h-32 w-full rounded-3xl" />
-              </div>
-            </div>
-          )}
+
           {/* Newspaper and Current Affairs Section */}
           <div className="max-w-6xl mx-auto w-full">
             <div className="grid lg:grid-cols-2 gap-8">
@@ -1088,183 +1086,59 @@ const Dashboard = () => {
             </div>
           </div>
 
-          {generatedContent && (
-            <div className="max-w-4xl mx-auto w-full space-y-8">
-              {/* Images Section */}
-              <div className="space-y-3">
-                <h3 className="text-xl font-semibold gradient-text">{t('hdImages')}</h3>
-                <div className="grid grid-cols-1 gap-4">
-                  {generatedContent.imageUrls.map((url) => (
-                    <div 
-                      key={generatedContent.topic} 
-                      className="group relative overflow-hidden rounded-xl border border-primary/30 bg-card cursor-pointer hover:scale-105 transition-all shadow-lg hover:shadow-2xl"
-                      onClick={() => { setSelectedImageUrl(url); setShowImageModal(true); }}
-                    >
-                      <img
-                        src={url}
-                        alt={`${generatedContent.topic} HD illustration`}
-                        className="h-80 w-full object-cover"
-                        loading="lazy"
-                        onError={(e) => {
-                          const target = e.target as HTMLImageElement;
-                          target.src = `https://source.unsplash.com/1920x1080/?${encodeURIComponent(generatedContent.topic)},education&sig=${Date.now()}`;
-                        }}
-                      />
-                      <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                        <ImageIcon className="w-12 h-12 text-white" />
-                      </div>
-                    </div>
-                  ))}
+          <Dialog open={showLeaderboard} onOpenChange={setShowLeaderboard}>
+            <DialogContent className="max-w-md bg-card/95 backdrop-blur-xl border border-amber-500/30 glow-orange rounded-3xl p-6">
+              <div className="flex items-center gap-3 mb-6 pb-4 border-b border-border/50">
+                <div className="w-12 h-12 rounded-full bg-amber-500/20 flex items-center justify-center">
+                  <Trophy className="w-6 h-6 text-amber-500" />
                 </div>
-                <div className="flex gap-4 justify-center">
-                  <a
-                    href={`https://unsplash.com/s/photos/${encodeURIComponent(generatedContent.topic)}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-primary hover:underline font-semibold"
-                  >
-                    {t('seeMoreImages')} on Unsplash
-                  </a>
-                  <span className="text-muted-foreground">|</span>
-                  <a
-                    href={`https://www.google.com/search?q=${encodeURIComponent(generatedContent.topic)}&tbm=isch`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-primary hover:underline font-semibold"
-                  >
-                    Search on Google Images
-                  </a>
+                <div>
+                  <h2 className="text-2xl font-bold gradient-text">Leaderboard</h2>
+                  <p className="text-sm text-muted-foreground">Top 3 Students</p>
                 </div>
               </div>
 
-              {/* Videos Section - Suggested Videos Only */}
-              <div className="space-y-3">
-                <h3 className="text-xl font-semibold gradient-text">{t('suggestedVideos')}</h3>
-                {generatedContent.suggestedVideos.length > 0 && (
-                  <>
-                    <div className="space-y-3">
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        {generatedContent.suggestedVideos.map((video, index) => (
-                          <a
-                            key={index}
-                            href={video.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="group block relative overflow-hidden rounded-xl border border-primary/20 bg-card cursor-pointer hover:scale-105 transition-all shadow-md hover:shadow-xl"
-                          >
-                            <div className="relative h-32 bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
-                              <Video className="w-12 h-12 text-primary" />
-                              <div className="absolute inset-0 bg-black/30 group-hover:bg-black/50 transition-colors" />
-                            </div>
-                            <div className="p-4">
-                              <p className="text-sm font-semibold text-foreground line-clamp-2">{video.title}</p>
-                              <p className="text-xs text-muted-foreground mt-1">Click to watch on YouTube</p>
-                            </div>
-                          </a>
-                        ))}
+              <div className="space-y-4">
+                {leaderboardData.length === 0 ? (
+                  <div className="text-center text-muted-foreground py-8">
+                    No students registered yet.
+                  </div>
+                ) : (
+                  leaderboardData.map((user, index) => (
+                    <div
+                      key={user.email}
+                      className="flex items-center justify-between p-4 rounded-xl bg-background/50 border border-primary/10 hover:border-primary/30 transition-all"
+                    >
+                      <div className="flex items-center gap-4">
+                        <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold
+                          ${index === 0 ? 'bg-amber-500 text-black shadow-[0_0_15px_rgba(245,158,11,0.5)] scale-110' :
+                            index === 1 ? 'bg-gray-300 text-black' :
+                              index === 2 ? 'bg-amber-700 text-white' : 'bg-primary/20 text-primary'}`}
+                        >
+                          {index + 1}
+                        </div>
+                        <div>
+                          <p className="font-semibold text-foreground text-lg">{user.name}</p>
+                          <p className="text-xs text-muted-foreground">{user.school || 'Student'}</p>
+                        </div>
+                      </div>
+                      <div className="font-bold text-xl text-primary drop-shadow-md">
+                        {user.xp || 0} XP
                       </div>
                     </div>
-                    <div className="flex gap-4 justify-center mt-4">
-                      <Button
-                        variant="outline"
-                        onClick={() => window.open(`https://www.youtube.com/results?search_query=${encodeURIComponent(generatedContent.topic + ' educational tutorial')}`, '_blank')}
-                        className="border-primary/30 hover:bg-primary/10"
-                      >
-                        <Video className="w-4 h-4 mr-2" />
-                        {t('suggestMoreVideos')}
-                      </Button>
-                      <Button
-                        variant="outline"
-                        onClick={() => window.open(`https://www.youtube.com/results?search_query=${encodeURIComponent(generatedContent.topic + ' lecture')}`, '_blank')}
-                        className="border-primary/30 hover:bg-primary/10"
-                      >
-                        <BookOpen className="w-4 h-4 mr-2" />
-                        Find Lectures
-                      </Button>
-                    </div>
-                  </>
+                  ))
                 )}
               </div>
 
-              {/* Text Section */}
-              <div className="relative overflow-hidden rounded-3xl bg-card border border-primary/30 p-6 glow-pink">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent" />
-                <div className="relative space-y-3">
-                  <span className="inline-flex items-center px-3 py-1 rounded-full bg-primary/20 text-primary text-xs font-semibold">
-                    {generatedContent.topic}
-                  </span>
-                  <h2 className="text-2xl font-bold gradient-text">{t('aiStudyNotes')}</h2>
-                  <ul className="list-disc space-y-1 pl-5 text-sm text-muted-foreground">
-                    {generatedContent.summaryLines.map((line, index) => (
-                      <li key={`${generatedContent.topic}-${index}`}>{line}</li>
-                    ))}
-                  </ul>
-                </div>
+              <div className="mt-6 pt-4 border-t border-border/50 text-center text-xs text-muted-foreground">
+                <p>Updates in real-time across all active sessions.</p>
+                <Link to="/quiz" onClick={() => setShowLeaderboard(false)}>
+                  <Button variant="link" className="text-primary mt-2">Go to Quiz Arena to earn XP &rarr;</Button>
+                </Link>
               </div>
-
-              {/* Textbook Section */}
-              <div className="relative overflow-hidden rounded-3xl bg-card border border-primary/30 p-6 glow-pink">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent" />
-                <div className="relative space-y-3">
-                  <span className="inline-flex items-center px-3 py-1 rounded-full bg-primary/20 text-primary text-xs font-semibold">
-                    {generatedContent.topic}
-                  </span>
-                  <h2 className="text-2xl font-bold gradient-text">{t('textbook')}</h2>
-                  <ul className="list-disc space-y-1 pl-5 text-sm text-muted-foreground">
-                    {generatedContent.bookRecommendations.map((book, index) => (
-                      <li key={`${generatedContent.topic}-book-${index}`}>{book}</li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-
-              {/* 3D View Section */}
-              {generatedContent.threeDModelUrl && (
-                <div className="relative overflow-hidden rounded-3xl bg-card border border-primary/30 p-6 glow-pink">
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent" />
-                  <div className="relative space-y-3">
-                    <span className="inline-flex items-center px-3 py-1 rounded-full bg-primary/20 text-primary text-xs font-semibold">
-                      {generatedContent.topic}
-                    </span>
-                    <h2 className="text-2xl font-bold gradient-text">{t('threeDView')}</h2>
-                    <div className="aspect-video overflow-hidden rounded-2xl border border-accent/30 bg-black/40">
-                      <iframe
-                        src={generatedContent.threeDModelUrl}
-                        title={`3D model of ${generatedContent.topic}`}
-                        className="h-full w-full"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowFullScreen
-                      />
-                    </div>
-                  </div>
-                </div>
-              )}
-            </div>
-          )}
-          <Dialog open={showImageModal} onOpenChange={setShowImageModal}>
-            <DialogContent className="max-w-7xl max-h-[95vh] p-0 bg-black/95 border-0">
-              {selectedImageUrl && (
-                <div className="relative w-full h-full">
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    className="absolute top-4 right-4 z-10 bg-black/70 hover:bg-black/90 text-white rounded-full"
-                    onClick={() => setShowImageModal(false)}
-                  >
-                    <X className="w-6 h-6" />
-                  </Button>
-                  <img
-                    src={selectedImageUrl}
-                    alt="Full screen preview"
-                    className="w-full h-auto max-h-[90vh] object-contain p-4"
-                  />
-                  <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black/70 text-white px-4 py-2 rounded-full text-sm">
-                    Click outside or press ESC to close
-                  </div>
-                </div>
-              )}
             </DialogContent>
           </Dialog>
+
           <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6 max-w-5xl mx-auto">
             <div className="group relative overflow-hidden rounded-2xl bg-card border border-primary/30 p-6 hover:border-primary transition-all hover:scale-105 cursor-pointer">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -1323,60 +1197,18 @@ const Dashboard = () => {
           <div className="space-y-6 max-w-5xl mx-auto">
             <div className="text-center space-y-2">
               <h2 className="text-3xl font-bold gradient-text">{t('personalizedTitle')}</h2>
-              <p className="text-muted-foreground">{t('personalizedSubtitle')} {mockUser.class} grade • {mockUser.purpose}</p>
-              <Select value={userData?.purpose || ''} onValueChange={(value) => {
-                const updated = { ...userData, purpose: value };
-                setUserData(updated);
-                localStorage.setItem('userData', JSON.stringify(updated));
-              }}>
-                <SelectTrigger className="w-auto max-w-xs mx-auto bg-card border-primary/30">
-                  <SelectValue placeholder={t('selectPurpose')} />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="regular study">Regular Study</SelectItem>
-                  <SelectItem value="engineering">Engineering (All Branches)</SelectItem>
-                  <SelectItem value="medical">Medical</SelectItem>
-                  <SelectItem value="bsc">BSc</SelectItem>
-                  <SelectItem value="ba">BA</SelectItem>
-                  <SelectItem value="kcet">KCET</SelectItem>
-                  <SelectItem value="neet">NEET</SelectItem>
-                  <SelectItem value="jee">JEE</SelectItem>
-                  <SelectItem value="general state govt exam">General State Govt Exam</SelectItem>
-                  <SelectItem value="upsc">UPSC</SelectItem>
-                  <SelectItem value="kas">KAS</SelectItem>
-                  <SelectItem value="central government exam">Central Government Exam</SelectItem>
-                </SelectContent>
-              </Select>
+              <p className="text-muted-foreground">
+                Choose your exam, subject &amp; mode — then get content, MCQs, mock tests &amp; revision
+              </p>
             </div>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {suggestedContent.map((content) => (
-                <div
-                  key={content.id}
-                  onClick={() => handleContentClick(content)}
-                  className="relative overflow-hidden rounded-3xl bg-card border border-primary/30 p-6 cursor-pointer hover:scale-105 transition-all glow-pink group"
-                >
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                  <div className="relative space-y-4">
-                    <div className="flex items-center justify-between">
-                      <span className="inline-flex items-center px-3 py-1 rounded-full bg-primary/20 text-primary text-xs font-semibold">
-                        {content.category}
-                      </span>
-                      <div className="flex items-center gap-1 text-xs text-muted-foreground">
-                        <Sparkles className="w-3 h-3 text-yellow-500 fill-yellow-500" />
-                        {content.difficulty}
-                      </div>
-                    </div>
-                    <div>
-                      <h3 className="text-lg font-bold gradient-text mb-2">{content.title}</h3>
-                      <p className="text-sm text-muted-foreground line-clamp-2">{content.description}</p>
-                    </div>
-                    <div className="pt-2 border-t border-primary/20">
-                      <p className="text-xs text-primary font-semibold">{content.relevance}</p>
-                    </div>
-                  </div>
-                </div>
-              ))}
+            {/* PCMB Tutor embedded wizard */}
+            <TutorWidget />
+
+            {/* Multi Mode Tutor Selection Flow */}
+            <div className="pt-4">
+              <MultiModeTutor />
             </div>
+
             <div className="text-center space-y-4 pt-8">
               <h3 className="text-2xl font-bold gradient-text">Quick Actions</h3>
               <div className="flex flex-wrap gap-4 justify-center">
@@ -1398,6 +1230,99 @@ const Dashboard = () => {
                     Study Rooms
                   </Button>
                 </Link>
+                <Link to="/tutor">
+                  <Button variant="outline" className="border-accent/40 hover:bg-accent/10 hover:scale-105 transition-all">
+                    <GraduationCap className="mr-2" />
+                    PCMB Tutor
+                  </Button>
+                </Link>
+              </div>
+            </div>
+
+            <div className="pt-10 space-y-4">
+              <div className="text-center space-y-1">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-center gap-2">
+                  <h3 className="text-2xl font-bold gradient-text">Previous Year Question Papers</h3>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="border-primary/30 hover:bg-primary/10"
+                    onClick={() => window.open('http://localhost:8000/pyq.html', '_blank')}
+                  >
+                    Open Early Links
+                  </Button>
+                </div>
+                <p className="text-sm text-muted-foreground">
+                  Practice official KCET, NEET, JEE Main &amp; JEE Advanced papers.
+                </p>
+              </div>
+              <div className="flex flex-wrap justify-center gap-2">
+                {(['KCET', 'NEET', 'JEE Main', 'JEE Advanced'] as const).map((exam) => (
+                  <Button
+                    key={exam}
+                    variant={selectedExamPYQ === exam ? 'default' : 'outline'}
+                    size="sm"
+                    onClick={() => setSelectedExamPYQ(exam)}
+                    className={
+                      selectedExamPYQ === exam
+                        ? 'rounded-full px-4 bg-gradient-to-r from-primary to-accent'
+                        : 'rounded-full border-primary/30'
+                    }
+                  >
+                    {exam}
+                  </Button>
+                ))}
+              </div>
+              <div className="flex flex-wrap justify-center gap-2">
+                {(['Physics', 'Chemistry', 'Mathematics', 'Biology'] as const).map((subject) => (
+                  <Button
+                    key={subject}
+                    variant={selectedSubjectPYQ === subject ? 'default' : 'outline'}
+                    size="sm"
+                    onClick={() => setSelectedSubjectPYQ(subject)}
+                    className={
+                      selectedSubjectPYQ === subject
+                        ? 'rounded-full px-4 bg-primary'
+                        : 'rounded-full border-primary/30'
+                    }
+                  >
+                    {subject}
+                  </Button>
+                ))}
+              </div>
+              <div className="rounded-3xl bg-card border border-primary/30 p-6 glow-pink max-w-3xl mx-auto">
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm font-semibold text-primary">
+                      {selectedExamPYQ} • {selectedSubjectPYQ}
+                    </span>
+                    {selectedExamPYQ !== 'KCET' && (
+                      <span className="text-xs text-muted-foreground">
+                        Papers for this exam coming soon.
+                      </span>
+                    )}
+                  </div>
+                  <ul className="space-y-2 text-sm">
+                    {previousYearPapers[selectedExamPYQ][selectedSubjectPYQ].length === 0 ? (
+                      <li className="text-muted-foreground">
+                        No papers added yet. Please check back later.
+                      </li>
+                    ) : (
+                      previousYearPapers[selectedExamPYQ][selectedSubjectPYQ].map((paper) => (
+                        <li key={`${paper.year}-${paper.label}`}>
+                          <a
+                            href={paper.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-primary hover:underline"
+                          >
+                            {paper.year} – {paper.label}
+                          </a>
+                        </li>
+                      ))
+                    )}
+                  </ul>
+                </div>
               </div>
             </div>
 
@@ -1423,8 +1348,21 @@ const Dashboard = () => {
           <div className="max-w-6xl mx-auto w-full">
             <RoadMapSection />
           </div>
+
+          {/* Application Owner Section */}
+          <div className="max-w-6xl mx-auto w-full mt-8">
+            <div className="rounded-3xl bg-card border border-primary/30 p-6 glow-pink">
+              <h2 className="text-2xl font-bold gradient-text mb-4">Application Owner</h2>
+              <div className="space-y-2 text-muted-foreground">
+                <p><strong>Original Owner:</strong> John Doe</p>
+                <p><strong>Application Name:</strong> Lumina AI Quest</p>
+                <p><strong>Version:</strong> 1.0</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
+      <Chatbot />
     </div>
   );
 };
